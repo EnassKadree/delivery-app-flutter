@@ -51,29 +51,31 @@ class AppTheme {
       ),
       //input decoration
       inputDecorationTheme: InputDecorationTheme(
+        fillColor: Colors.white,
+        filled: true,
         labelStyle: TextStyle(color: primaryColor),
         hintStyle: TextStyle(color: secondaryContainer, fontSize: 15),
         floatingLabelStyle: TextStyle(color: secondaryColor, fontSize: 15),
         suffixIconColor: secondaryContainer,
         disabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: primaryContainer, width: 1),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(16),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: primaryColor, width: 1),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(16),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: secondaryColor, width: 1),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(16),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.red[800]!, width: 1),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(16),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.red[800]!, width: 1),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(16),
         ) ,
       ),
 
@@ -89,7 +91,7 @@ class AppTheme {
           backgroundColor: primaryColor,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(16),
           ),
         ),
       ),

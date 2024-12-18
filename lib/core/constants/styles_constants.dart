@@ -18,16 +18,29 @@ abstract class StylesConsts
     fontWeight: FontWeight.bold,
   );
 
+  static const TextStyle yellowTextXs = TextStyle
+  (
+    color: AppColors.yellowColor,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
+
   static const TextStyle lightMidTitleText = TextStyle
   (
     color: AppColors.lightYellowColor,
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
-  static const TextStyle whiteTextSm = TextStyle
+  static const TextStyle whiteTextXs = TextStyle
   (
     color: AppColors.white,
     fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle whiteTextLg = TextStyle
+  (
+    color: AppColors.white,
+    fontSize: 28,
     fontWeight: FontWeight.bold,
   );
 }
