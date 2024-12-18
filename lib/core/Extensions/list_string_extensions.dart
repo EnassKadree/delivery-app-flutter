@@ -9,7 +9,7 @@ extension ListStringExtensions on List<String> {
       children.add(Text(
         item,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: AppColors.darkNavyColor),
+        style: const TextStyle(color: AppColors.blackColor),
       ));
     }
     return children;

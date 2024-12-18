@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
-import '../constants/styles_constants.dart';
 
 class AppTheme {
   //variables
@@ -15,11 +14,11 @@ class AppTheme {
   static ThemeData get lightTheme 
   {
     // colors
-    primaryColor = AppColors.midNavyColor;
+    primaryColor = AppColors.blueColor;
     secondaryColor = AppColors.yellowColor;
-    scaffoldBackgroundColor = const Color(0xffffffff);
+    scaffoldBackgroundColor = AppColors.backGroundGreyColor;
     surfaceContainer = Colors.white;
-    primaryContainer = const Color(0xffD5D5D5);
+    primaryContainer = AppColors.greyColor;
     secondaryContainer = const Color(0xff888888);
 
     // theme light
@@ -95,11 +94,11 @@ class AppTheme {
         ),
       ),
 
-      dialogTheme: const DialogTheme
-      (
-        titleTextStyle: StylesConsts.dialogTitle,
-        contentTextStyle: StylesConsts.dialogContent,
-      ),
+      // dialogTheme: const DialogTheme
+      // (
+      //   titleTextStyle: StylesConsts.dialogTitle,
+      //   contentTextStyle: StylesConsts.dialogContent,
+      // ),
 
       textButtonTheme: TextButtonThemeData
       (

@@ -9,19 +9,19 @@ extension ShowAlertDialog on  Functions
       'تمت العملية بنجاح!' : 
       'حدث خطأ ما!';
 
-    final TextStyle style = state?
-      StylesConsts.dialogTitle :
-      StylesConsts.errorDialogTitle;
+    // final TextStyle style = state?
+    //   StylesConsts.dialogTitle :
+    //   StylesConsts.errorDialogTitle;
 
     final Icon icon = state? 
-      const Icon(Iconsax.tick_circle, size: 32, color: AppColors.lightNavyColor) : 
+      const Icon(Iconsax.tick_circle, size: 32, color: AppColors.blueColor) : 
       Icon(Iconsax.info_circle, size: 32, color: AppColors.errorColor);
 
     final ButtonStyle buttonStyle = state?
       TextButton.styleFrom
       (
-        backgroundColor: AppColors.midNavyColor.withOpacity(.2),
-        foregroundColor: AppColors.midNavyColor 
+        backgroundColor: AppColors.blueColor.withOpacity(.2),
+        foregroundColor: AppColors.blueColor 
       ) :
       TextButton.styleFrom
       (
@@ -37,7 +37,9 @@ extension ShowAlertDialog on  Functions
           [
             icon,
             8.spaceW,
-            Text(title, style: style,),
+            Text(title, 
+            //style: style,
+            ),
           ],
         ),
         content: Text(message),
