@@ -8,6 +8,7 @@ import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/styles_constants.dart';
+import '../../../core/functions/functions.dart';
 import 'components/custom_text_form_field.dart';
 
 class SignupPage extends StatelessWidget {
@@ -28,7 +29,7 @@ class SignupPage extends StatelessWidget {
       (
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        children: 
+        children: Functions().staggeredList(
         [
           context.verticalSpace(0.1),
           Image.asset(AppAssets.logo1String, height: 100,),
@@ -91,7 +92,7 @@ class SignupPage extends StatelessWidget {
               ),
             ],
           )
-        ],
+        ]),
       ),
     );
   }

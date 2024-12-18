@@ -5,6 +5,7 @@ import 'package:delivery_app/core/components/custom_button.dart';
 import 'package:delivery_app/core/constants/app_assets.dart';
 import 'package:delivery_app/core/constants/app_colors.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
+import 'package:delivery_app/core/functions/functions.dart';
 import 'package:delivery_app/features/auth/view/signup.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class LoginPage extends StatelessWidget {
       (
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        children: 
+        children: Functions().staggeredList(
         [
           context.verticalSpace(0.1),
           Image.asset(AppAssets.logo1String, height: 100,),
@@ -69,7 +70,7 @@ class LoginPage extends StatelessWidget {
               ),
             ],
           )
-        ],
+        ]),
       ),
     );
   }
