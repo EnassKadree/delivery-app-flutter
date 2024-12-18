@@ -24,4 +24,10 @@ abstract class StylesConsts
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle whiteTextSm = TextStyle
+  (
+    color: AppColors.white,
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+  );
 }

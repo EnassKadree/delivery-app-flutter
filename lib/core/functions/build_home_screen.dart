@@ -12,7 +12,7 @@ extension BuildHomeScreen on Functions
       // } else {
       //   return const AuthHomePageWrapper();
       // }
-      return MyHomePage();
+      return LoginPage();
     });
   }
 }

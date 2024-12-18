@@ -1,9 +1,7 @@
-class AppAssets 
+abstract class AppAssets 
 {
   // LOGOS
-  static const String logo1String = 'assets/images/logos/logo1.png';
-  static const String logo2String = 'assets/images/logos/logo2.png';
-  static const String logo3String = 'assets/images/logos/logo3.jpg';
+  static const String logo1String = 'assets/images/logo/logo1.png';
 
   // BACKGROUND
   static const String profile= 'assets/images/other/profile.png';

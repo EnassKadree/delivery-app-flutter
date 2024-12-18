@@ -36,8 +36,16 @@ extension WidgetExtension on Widget {
         child: ScaleAnimation(child: this),
       );
 
-  Widget get mainPadding => Padding(
+  Widget get horizontalPadding => Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: this,
+      );
+  Widget get verticalPadding => Padding(
+        padding: EdgeInsets.symmetric(vertical: 16.h),
+        child: this,
+      );
+  Widget get mainPadding => Padding(
+        padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
         child: this,
       );
 }

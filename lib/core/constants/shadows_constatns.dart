@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ShadowsConsts {
+abstract class ShadowsConsts {
   static Color customColor = const Color(0xff101828);
   static List<BoxShadow>? xs = [
     BoxShadow(

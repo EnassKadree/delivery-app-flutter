@@ -1,4 +1,4 @@
-class JsonConstants 
+abstract class JsonConstants 
 {
   // ONBOARDING
   static const String discover = 'discover';

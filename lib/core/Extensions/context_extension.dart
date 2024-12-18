@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'animated_route.dart';
 
-extension Context on BuildContext {
-
+extension Context on BuildContext 
+{
+  // NAVIGATORS
   Future<T?> push<T>(Widget page) {
     return Navigator.of(this).push<T>(SlideRight(page: page));
   }
@@ -22,6 +23,22 @@ extension Context on BuildContext {
   void pop<T>([T? result]) {
     Navigator.of(this).pop<T>(result);
   }
+
+  // DYNAMIC SPACES
+  SizedBox verticalSpace(double fraction) 
+  {
+    return SizedBox(
+      height: MediaQuery.of(this).size.height * fraction,
+    );
+  }
+
+  SizedBox horizontalSpace(double fraction) 
+  {
+    return SizedBox(
+      width: MediaQuery.of(this).size.width * fraction,
+    );
+  }
+  
   /// is dark mode currently enabled?
   bool get isDarkMode => Theme.of(this).brightness == Brightness.dark;
 
