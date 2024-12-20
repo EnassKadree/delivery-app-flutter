@@ -1,4 +1,6 @@
 {
+    "quickCart": "QuickCart",
+    "fastDelivery": "fast delivery app",
     "welcomeBack": "Welcome Back!", 
     "createAccount": "create account", 
     "loginWithAccount": "login with your account to continue", 
@@ -8,11 +10,14 @@
     "phone": "phone", 
     "password": "password", 
     "address": "address", 
+    "email": "email", 
     "dontHaveAccount": "don't have an account?", 
     "haveAccount": "already have an account?",
     "verifyPhone": "verify your phone number",
     "enterOtp": "Enter your OTP code here",
     "send": "send",
     "didntReceiveOtp": "didn't receive the OTP?",
-    "resend": "resend"
+    "resend": "resend",
+    "profileInfo": "profile info",
+    "register": "register",
 }  

@@ -1,4 +1,6 @@
 {
+    "quickCart": "QuickCart",
+    "fastDelivery": "fast delivery app",
     "welcomeBack": "أهلاً بك!",
     "createAccount": "إنشاء حساب",
     "loginWithAccount": "سجل دخول بواسطة حسابك للاستمرار",
@@ -8,11 +10,14 @@
     "phone": "رقم الهاتف",
     "password": "كلمة السر",
     "address": "العنوان",
+    "email": "البريد الإلكتروني",
     "dontHaveAccount": "ألا تملك حساباً؟",
     "haveAccount": "هل تملك حساباً؟",
     "verifyPhone": "بتأكيد رقم الهاتف الخاص بك",
     "enterOtp": "أدخل رمز التحقق",
     "send": "إرسال",
     "didntReceiveOtp": "لم تصلك رسالة الرمز؟",
-    "resend": "إعادة الإرسال"
+    "resend": "إعادة الإرسال",
+    "profileInfo": "معلومات الحساب",
+    "register": "تسجيل"
 }  

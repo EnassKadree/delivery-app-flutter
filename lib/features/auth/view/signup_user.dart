@@ -5,19 +5,20 @@ import 'package:delivery_app/core/components/custom_button.dart';
 import 'package:delivery_app/core/constants/app_assets.dart';
 import 'package:delivery_app/core/constants/app_colors.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
-import 'package:delivery_app/core/functions/functions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/styles_constants.dart';
+import '../../../core/functions/functions.dart';
 import 'components/custom_text_form_field.dart';
-import 'signup_user.dart';
+import 'signup_profile.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignupUserPage extends StatelessWidget {
+  const SignupUserPage({super.key});
 
   @override
   Widget build(BuildContext context) 
   {
+    TextEditingController emailController = TextEditingController();
     TextEditingController phoneController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     return Scaffold
@@ -34,9 +35,15 @@ class LoginPage extends StatelessWidget {
           Center(child: Text(JsonConstants.quickCart.t(context), style: StylesConsts.titleText)),
           Center(child: Text(JsonConstants.fastDelivery.t(context), style: StylesConsts.whiteTextXs)),
           32.spaceH,
-          Text(JsonConstants.welcomeBack.t(context), style: StylesConsts.whiteTextLg),
-          Text(JsonConstants.loginWithAccount.t(context), style: StylesConsts.whiteTextXs),
+          Text(JsonConstants.createAccount.t(context), style: StylesConsts.whiteTextLg),
           16.spaceH,
+          CustomTextFromField
+          (
+            controller: emailController,
+            label: JsonConstants.email.t(context),
+            type: TextInputType.emailAddress,
+          ),
+          8.spaceH,
           CustomTextFromField
           (
             controller: phoneController,
@@ -53,20 +60,23 @@ class LoginPage extends StatelessWidget {
           32.spaceH,
           CustomButton
           (
-            title: JsonConstants.login.t(context), 
-            onPressed: (){},
+            title: JsonConstants.createAccount.t(context), 
+            onPressed: ()
+            {
+              context.push(const SignupProfilePage());
+            },
             color: context.theme.colorScheme.secondary,
           ),
           12.spaceH,
           Row(
             children: 
             [
-              Text(JsonConstants.dontHaveAccount.t(context), style: StylesConsts.whiteTextXs,),
+              Text(JsonConstants.haveAccount.t(context), style: StylesConsts.whiteTextXs,),
               12.spaceW,
               InkWell
               (
-                child: Text(JsonConstants.createAccount.t(context), style: StylesConsts.yellowTextXs,),
-                onTap: (){context.push(const SignupUserPage());},
+                child: Text(JsonConstants.login.t(context), style: StylesConsts.yellowTextXs,),
+                onTap: (){context.pop();},
               ),
             ],
           )
