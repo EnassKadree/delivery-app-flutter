@@ -27,4 +27,10 @@ abstract class JsonConstants
   static const String lastName = 'lastName';
   static const String address = 'address';
   static const String register = 'register';
+
+  // NAVIGATION BAR
+  static const String home = 'home';
+  static const String orders = 'orders';
+  static const String favourite = 'favourite';
+  static const String cart = 'cart';
 }

@@ -1,5 +1,5 @@
 import 'package:delivery_app/features/app/model/user.dart';
-import 'package:delivery_app/features/auth/view/login.dart';
+import 'package:delivery_app/features/home/view/home_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
                     locale: locale,
                     home: Builder(builder: (context) {
                       //setupLocator(context);
-                      return const LoginPage();
+                      return const HomeLayoutWrapper();
                     }),
                   );
                 },

@@ -128,7 +128,11 @@ class AppTheme {
       bottomNavigationBarTheme: BottomNavigationBarThemeData
       (
         selectedItemColor: secondaryColor,
-        selectedIconTheme: const IconThemeData(size: 28)
+        unselectedItemColor: primaryColor,
+        selectedIconTheme: const IconThemeData(size: 28),
+        unselectedIconTheme: const IconThemeData(size: 24),
+        showUnselectedLabels: true,
+        elevation: 0
       ),
     );
   }

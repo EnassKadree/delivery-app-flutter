@@ -19,5 +19,9 @@
     "didntReceiveOtp": "لم تصلك رسالة الرمز؟",
     "resend": "إعادة الإرسال",
     "profileInfo": "معلومات الحساب",
-    "register": "تسجيل"
+    "register": "تسجيل",
+    "home": "الرئيسة",
+    "orders": "الطلبات",
+    "favourite": "المفضلة",
+    "cart": "السلة"
 }  

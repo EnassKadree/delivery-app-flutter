@@ -1,0 +1,51 @@
+
+import 'package:delivery_app/core/Extensions/context_extension.dart';
+import 'package:delivery_app/core/Extensions/string_extensions.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax/iconsax.dart';
+
+import '../../../../core/constants/json_constants.dart';
+import '../../service/navigationbar/bottom_nav_cubit.dart';
+
+class CustomBottomNavigationBar extends StatelessWidget {
+  const CustomBottomNavigationBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container
+    (
+      margin: const EdgeInsets.all(24),
+      decoration: BoxDecoration
+      (
+        boxShadow: [BoxShadow
+        (
+          color: context.theme.colorScheme.primaryContainer,
+          spreadRadius: 0,
+          blurRadius: 5
+        )],
+      ),
+      child: BlocBuilder<BottomNavCubit, int>
+      (
+        builder: (context, state) 
+        {
+          return ClipRRect
+          (
+            borderRadius: BorderRadius.circular(16),
+            child: BottomNavigationBar
+            (
+              currentIndex: state,
+              onTap: (index) => context.read<BottomNavCubit>().updateTab(index),
+              items: 
+              [ 
+                BottomNavigationBarItem(icon: const Icon(Iconsax.home), label: JsonConstants.home.t(context)),
+                BottomNavigationBarItem(icon: const Icon(Iconsax.box), label: JsonConstants.orders.t(context)),
+                BottomNavigationBarItem(icon: const Icon(Iconsax.heart), label: JsonConstants.favourite.t(context)),
+                BottomNavigationBarItem(icon: const Icon(Iconsax.bag), label: JsonConstants.cart.t(context)),
+              ]
+            ),
+          );
+      }),
+    );
+  }
+}

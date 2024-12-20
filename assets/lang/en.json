@@ -20,4 +20,8 @@
     "resend": "resend",
     "profileInfo": "profile info",
     "register": "register",
+    "home": "home",
+    "orders": "orders",
+    "favourite": "favourite",
+    "cart": "cart"
 }  
