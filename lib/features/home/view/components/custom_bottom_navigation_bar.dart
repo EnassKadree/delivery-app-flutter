@@ -39,9 +39,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
               items: 
               [ 
                 BottomNavigationBarItem(icon: const Icon(Iconsax.home), label: JsonConstants.home.t(context)),
-                BottomNavigationBarItem(icon: const Icon(Iconsax.box), label: JsonConstants.orders.t(context)),
+                BottomNavigationBarItem(icon: const Icon(Iconsax.document), label: JsonConstants.orders.t(context)),
                 BottomNavigationBarItem(icon: const Icon(Iconsax.heart), label: JsonConstants.favourite.t(context)),
-                BottomNavigationBarItem(icon: const Icon(Iconsax.bag), label: JsonConstants.cart.t(context)),
+                BottomNavigationBarItem(icon: const Icon(Iconsax.bag_2), label: JsonConstants.cart.t(context)),
               ]
             ),
           );
