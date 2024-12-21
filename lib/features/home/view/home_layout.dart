@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../service/navigationbar/bottom_nav_cubit.dart';
+import 'components/background_container.dart';
 import 'components/custom_bottom_navigation_bar.dart';
 import 'home_page.dart';
 
@@ -27,10 +28,10 @@ class HomeLayout extends StatelessWidget {
           (
             children: 
             [
-              // Positioned.fill
-              // (
-              //   child: BackgroundContainer(height: backgroundHeights[state]),
-              // ),
+              Positioned.fill
+              (
+                child: BackgroundContainer(height: MediaQuery.of(context).size.height/2.5),
+              ),
               _pages[state],
             ],
           );
