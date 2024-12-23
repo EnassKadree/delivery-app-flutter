@@ -6,16 +6,16 @@ import '../../../../Core/functions/functions.dart';
 
 class CustomTextFromField extends StatelessWidget {
   const CustomTextFromField({
-    super.key, required this.label, required this.controller, required this.type,
+    super.key, required this.label, required this.controller, required this.type,this.readOnly=false,
   });
   final String label;
   final TextEditingController controller;
   final TextInputType type;
-  
+   final bool readOnly;
   @override
   Widget build(BuildContext context) {
     return TextFormField
-    (
+    (readOnly: readOnly,
       controller: controller,
       style: const TextStyle(color: AppColors.blueColor),
       obscureText: type == TextInputType.visiblePassword,

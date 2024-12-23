@@ -1,5 +1,7 @@
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:delivery_app/features/home/view/home_layout.dart';
+import 'package:delivery_app/features/home/view/home_page.dart';
+import 'package:delivery_app/features/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +29,7 @@ void main() async
     userCubit.login(user);
   }
 
-  final locale = savedLocale != null ? Locale(savedLocale) : const Locale('ar');
+  final locale = savedLocale != null ? Locale(savedLocale) : const Locale('en');
   final theme = savedTheme == 'dark' ? Themes.dark : Themes.light;
 
   runApp(
@@ -89,7 +91,7 @@ class MyApp extends StatelessWidget {
                     locale: locale,
                     home: Builder(builder: (context) {
                       //setupLocator(context);
-                      return const HomeLayoutWrapper();
+                      return const Profile();
                     }),
                   );
                 },

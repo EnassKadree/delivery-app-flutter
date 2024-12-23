@@ -23,5 +23,7 @@
     "home": "home",
     "orders": "orders",
     "favourite": "favourite",
-    "cart": "cart"
+    "cart": "cart",
+    "myProfile":"My Profile",
+    "upDate":"Up Date"
 }  
