@@ -1,9 +1,9 @@
 abstract class EndPoint 
 {
   // BASE URL
-  static const String baseUrl = 'https://al-basheer-quizzes.mouhannadabdalrhem.online/api/v1/';
+  static const String baseUrl = 'http://127.0.0.1:8000/api/';
   // AUTH
-  static const String register = 'auth/register';
+  static const String register = 'register';
   static const String login = 'auth/login';
 
   // CLASSES

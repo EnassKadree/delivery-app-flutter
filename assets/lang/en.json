@@ -26,5 +26,17 @@
     "cart": "cart",
     "stores": "stores",
     "products": "products",
-    "addToCart": "add to cart"
+    "addToCart": "add to cart",
+    "myProfile":"My Profile",
+    "upDate":"Up Date",
+    "fieldIsRequired":"Field is required",
+    "invalidEmail":"Invalid email",
+    "atLeastThreeCharacters":"At least three characters",
+    "tooLong":"Too long",
+    "thePasswordIsTooShort":"The password is too short",
+    "passwordIsTooLong":"Password is too long",
+    "invalidMobileNumber":"Invalid mobile number",
+    "ok":"Ok",
+    "registrationSuccessfully":"registration successfully",
+    "passwordConfirmation":"Password confirmation"
 }  

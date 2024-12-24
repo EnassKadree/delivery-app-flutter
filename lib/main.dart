@@ -1,5 +1,10 @@
 import 'package:delivery_app/features/app/model/user.dart';
+import 'package:delivery_app/features/auth/service/register/register_cubit.dart';
+import 'package:delivery_app/features/auth/view/signup_profile.dart';
+import 'package:delivery_app/features/auth/view/signup_user.dart';
 import 'package:delivery_app/features/home/view/home_layout.dart';
+import 'package:delivery_app/features/home/view/home_page.dart';
+import 'package:delivery_app/features/profile/view/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,8 +18,7 @@ import 'features/app/locale/locale_cubit.dart';
 import 'features/app/theme/theme_cubit.dart';
 import 'features/app/user/user_cubit.dart';
 
-void main() async 
-{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
 
@@ -31,13 +35,16 @@ void main() async
   final theme = savedTheme == 'dark' ? Themes.dark : Themes.light;
 
   runApp(
-    MultiBlocProvider
-    (
-      providers: 
-      [
-        BlocProvider(create: (context) => LocaleCubit(locale),),
-        BlocProvider(create: (context) => ThemeCubit(theme),),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LocaleCubit(locale),
+        ),
+        BlocProvider(
+          create: (context) => ThemeCubit(theme),
+        ),
         BlocProvider(create: (context) => userCubit),
+        BlocProvider(create: (context) => RegisterCubit()),
       ],
       child: const MyApp(),
     ),
@@ -52,51 +59,48 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        builder: (_, __) => BlocListener<LocaleCubit, Locale>(
-          listener: (context, state) 
-          {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-            });
-          },
-          child: BlocBuilder<ThemeCubit, Themes>(
-            builder: (context, theme) {
-              return BlocBuilder<LocaleCubit, Locale>(
-                builder: (context, locale) {
-                  return MaterialApp(
-                    debugShowCheckedModeBanner: false,
-                    theme: AppTheme.lightTheme,
-                    themeMode: ThemeMode.light,
-                    localizationsDelegates: const [
-                      AppLocalizations.delegate,
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                    ],
-                    supportedLocales: const [
-                      Locale('ar', ''),
-                      Locale('en', ''),
-                    ],
-                    localeResolutionCallback: (locale, supportedLocales) {
-                      if (locale == null) return supportedLocales.first;
-                      for (var supportedLocale in supportedLocales) {
-                        if (supportedLocale.languageCode ==
-                            locale.languageCode) {
-                          return supportedLocale;
-                        }
+      builder: (_, __) => BlocListener<LocaleCubit, Locale>(
+        listener: (context, state) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {});
+        },
+        child: BlocBuilder<ThemeCubit, Themes>(
+          builder: (context, theme) {
+            return BlocBuilder<LocaleCubit, Locale>(
+              builder: (context, locale) {
+                return MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  theme: AppTheme.lightTheme,
+                  themeMode: ThemeMode.light,
+                  localizationsDelegates: const [
+                    AppLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  supportedLocales: const [
+                    Locale('ar', ''),
+                    Locale('en', ''),
+                  ],
+                  localeResolutionCallback: (locale, supportedLocales) {
+                    if (locale == null) return supportedLocales.first;
+                    for (var supportedLocale in supportedLocales) {
+                      if (supportedLocale.languageCode == locale.languageCode) {
+                        return supportedLocale;
                       }
-                      return supportedLocales.first;
-                    },
-                    locale: locale,
-                    home: Builder(builder: (context) {
-                      //setupLocator(context);
-                      return const HomeLayoutWrapper();
-                    }),
-                  );
-                },
-              );
-            },
-          ),
+                    }
+                    return supportedLocales.first;
+                  },
+                  locale: locale,
+                  home: Builder(builder: (context) {
+                    //setupLocator(context);
+                    return const SignupUserPage();
+                  }),
+                );
+              },
+            );
+          },
         ),
-      );
+      ),
+    );
   }
 }
