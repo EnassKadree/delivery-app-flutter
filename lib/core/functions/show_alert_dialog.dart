@@ -47,7 +47,7 @@ extension ShowAlertDialog on  Functions
         [
           TextButton(onPressed: (){context.pop();},
           style: buttonStyle,
-          child: const Text('موافق'),
+          child:  Text(JsonConstants.ok.t(context)),
           )
         ],
       )

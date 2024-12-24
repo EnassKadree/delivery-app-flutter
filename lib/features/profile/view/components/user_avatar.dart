@@ -11,6 +11,7 @@ class UserAvatar extends StatefulWidget {
   const UserAvatar({super.key, this.imageUrl});
 
   @override
+  
   _UserAvatarState createState() => _UserAvatarState();
 }
 
@@ -39,7 +40,7 @@ class _UserAvatarState extends State<UserAvatar> {
         backgroundColor: Colors.grey[300],
         child: selectedImageUrl == null && (widget.imageUrl == null || widget.imageUrl!.isEmpty)
             ? IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Iconsax.user_add,
                   size: 40,
                   color: AppColors.blueColor,

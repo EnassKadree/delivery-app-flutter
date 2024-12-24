@@ -25,5 +25,15 @@
     "favourite": "المفضلة",
     "cart": "السلة",
     "myProfile":"ملفي الشخصي",
-    "upDate":"تعديل"
+    "upDate":"تعديل",
+    "fieldIsRequired":"الحقل مطلوب",
+    "invalidEmail":"البريد الإلكتروني غير صالح",
+    "atLeastThreeCharacters":"ثلاث محارف على الاقل ",
+    "tooLong":"طويل جدا",
+    "thePasswordIsTooShort":"كلمة السر قصيرة جدا",
+    "passwordIsTooLong":"كلمة السر طويلة جدا",
+    "invalidMobileNumber":"رقم الموبايل غير صالح",
+    "ok":"موافق",
+    "registrationSuccessfully":"تم التسجيل بنجاح",
+    "passwordConfirmation":"تأكيد كلمة السر"
 }  

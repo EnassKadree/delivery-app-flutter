@@ -16,57 +16,65 @@ class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context) 
-  {
+  Widget build(BuildContext context) {
     TextEditingController phoneController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-    return Scaffold
-    (
+    return Scaffold(
       backgroundColor: AppColors.blueColor,
-      body: ListView
-      (
+      body: ListView(
         physics: const BouncingScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        children: Functions().staggeredList(
-        [
+        children: Functions().staggeredList([
           context.verticalSpace(0.1),
-          Image.asset(AppAssets.logo1String, height: 100,),
-          Center(child: Text(JsonConstants.quickCart.t(context), style: StylesConsts.titleText)),
-          Center(child: Text(JsonConstants.fastDelivery.t(context), style: StylesConsts.whiteTextXs)),
+          Image.asset(
+            AppAssets.logo1String,
+            height: 100,
+          ),
+          Center(
+              child: Text(JsonConstants.quickCart.t(context),
+                  style: StylesConsts.titleText)),
+          Center(
+              child: Text(JsonConstants.fastDelivery.t(context),
+                  style: StylesConsts.whiteTextXs)),
           32.spaceH,
-          Text(JsonConstants.welcomeBack.t(context), style: StylesConsts.whiteTextLg),
-          Text(JsonConstants.loginWithAccount.t(context), style: StylesConsts.whiteTextXs),
+          Text(JsonConstants.welcomeBack.t(context),
+              style: StylesConsts.whiteTextLg),
+          Text(JsonConstants.loginWithAccount.t(context),
+              style: StylesConsts.whiteTextXs),
           16.spaceH,
-          CustomTextFromField
-          (
+          CustomTextFromField(
             controller: phoneController,
             label: JsonConstants.phone.t(context),
             type: TextInputType.phone,
           ),
           8.spaceH,
-          CustomTextFromField
-          (
+          CustomTextFromField(
             controller: passwordController,
             label: JsonConstants.password.t(context),
             type: TextInputType.visiblePassword,
           ),
           32.spaceH,
-          CustomButton
-          (
-            title: JsonConstants.login.t(context), 
-            onPressed: (){},
+          CustomButton(
+            title: JsonConstants.login.t(context),
+            onPressed: () {},
             color: context.theme.colorScheme.secondary,
           ),
           12.spaceH,
           Row(
-            children: 
-            [
-              Text(JsonConstants.dontHaveAccount.t(context), style: StylesConsts.whiteTextXs,),
+            children: [
+              Text(
+                JsonConstants.dontHaveAccount.t(context),
+                style: StylesConsts.whiteTextXs,
+              ),
               12.spaceW,
-              InkWell
-              (
-                child: Text(JsonConstants.createAccount.t(context), style: StylesConsts.yellowTextXs,),
-                onTap: (){context.push(const SignupUserPage());},
+              InkWell(
+                child: Text(
+                  JsonConstants.createAccount.t(context),
+                  style: StylesConsts.yellowTextXs,
+                ),
+                onTap: () {
+                  context.push(const SignupUserPage());
+                },
               ),
             ],
           )

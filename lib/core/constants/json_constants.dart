@@ -1,6 +1,5 @@
-abstract class JsonConstants 
-{
-  // APP 
+abstract class JsonConstants {
+  // APP
   static const String quickCart = 'quickCart';
   static const String fastDelivery = 'fastDelivery';
   // AUTH
@@ -10,6 +9,8 @@ abstract class JsonConstants
   static const String login = 'login';
   static const String phone = 'phone';
   static const String password = 'password';
+  
+  static const String passwordConfirmation = 'passwordConfirmation';
   static const String email = 'email';
   static const String dontHaveAccount = 'dontHaveAccount';
   static const String haveAccount = 'haveAccount';
@@ -27,12 +28,23 @@ abstract class JsonConstants
   static const String lastName = 'lastName';
   static const String address = 'address';
   static const String register = 'register';
-  
-static const String myProfile = 'myProfile';
-static const String upDate = 'upDate';
+
+  static const String myProfile = 'myProfile';
+  static const String upDate = 'upDate';
   // NAVIGATION BAR
   static const String home = 'home';
   static const String orders = 'orders';
   static const String favourite = 'favourite';
   static const String cart = 'cart';
+
+  //validator .
+  static const String fieldIsRequired = 'fieldIsRequired';
+  static const String invalidEmail = 'invalidEmail';
+  static const String atLeastThreeCharacters = 'atLeastThreeCharacters';
+  static const String tooLong = 'tooLong';
+  static const String passwordIsTooLong = 'passwordIsTooLong';
+  static const String thePasswordIsTooShort = 'thePasswordIsTooShort';
+  static const String invalidMobileNumber = 'invalidMobileNumber';
+  static const String ok = 'ok';
+   static const String registrationSuccessfully = 'registrationSuccessfully';
 }

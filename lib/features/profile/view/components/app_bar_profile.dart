@@ -3,7 +3,7 @@ import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/constants/app_colors.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
-import 'package:delivery_app/features/profile/user_avatar.dart';
+import 'package:delivery_app/features/profile/view/components/user_avatar.dart';
 import 'package:flutter/material.dart';
 
 class AppBarProfile extends StatelessWidget {
@@ -28,29 +28,26 @@ class AppBarProfile extends StatelessWidget {
             ),
             child: null),
         Positioned(
-            top: 40,
-            left: 0,
-            right: 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Row(
-              
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.arrow_back,
-                        color: AppColors.blueColor),
-                    iconSize: 24,
-                  ),
-                  55.spaceW,
-                  Center(
-                    child: Text(JsonConstants.myProfile.t(context),
-                        style: StylesConsts.titleText
-                            .copyWith(color: AppColors.blueColor)),
-                  ),
-                ],
-              ),
-            )),
+          top: 40,
+          left: 0,
+          right: 250,
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.arrow_back, color: AppColors.blueColor),
+            iconSize: 24,
+          ),
+        ),
+        55.spaceW,
+        Positioned(
+          top: 40,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: Text(JsonConstants.myProfile.t(context),
+                style: StylesConsts.titleText
+                    .copyWith(color: AppColors.blueColor)),
+          ),
+        ),
         const Positioned(
           bottom: -40,
           left: 0,
