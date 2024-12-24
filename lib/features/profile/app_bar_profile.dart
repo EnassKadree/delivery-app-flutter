@@ -34,7 +34,7 @@ class AppBarProfile extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Row(
-               
+              
                 children: [
                   IconButton(
                     onPressed: () {},

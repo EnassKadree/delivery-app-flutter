@@ -1,4 +1,4 @@
-import 'package:delivery_app/features/home/view/components/home_page_body.dart';
+import 'package:delivery_app/features/home/view/home_layout.dart';
 import 'package:flutter/material.dart';
 
 
@@ -8,6 +8,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomePageBody();
+    return const HomeLayout();
   }
 }
