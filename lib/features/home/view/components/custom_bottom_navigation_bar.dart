@@ -15,7 +15,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container
     (
-      margin: const EdgeInsets.all(24),
+      margin: const EdgeInsets.only(bottom: 24, right: 24, left: 24),
       decoration: BoxDecoration
       (
         boxShadow: [BoxShadow

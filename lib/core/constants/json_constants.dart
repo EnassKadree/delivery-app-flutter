@@ -33,4 +33,9 @@ abstract class JsonConstants
   static const String orders = 'orders';
   static const String favourite = 'favourite';
   static const String cart = 'cart';
+
+  // HOME SCREEN
+  static const stores = 'stores';
+  static const products = 'products';
+  static const addToCart = 'addToCart';
 }

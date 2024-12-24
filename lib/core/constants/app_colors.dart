@@ -12,4 +12,10 @@ abstract class AppColors
   static const Color white = Color(0XFFffffff);
 
   static Color errorColor =  Colors.red[800]!;
+
+  static const List<Color> blueGradient = 
+  [
+    blueColor,
+    Color.fromARGB(255, 56, 159, 154)
+  ];
 }

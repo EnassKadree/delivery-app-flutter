@@ -34,7 +34,7 @@ abstract class ShadowsConsts {
   ];
   static List<BoxShadow>? lg = [
     BoxShadow(
-      color: customColor.withOpacity(0.03),
+      color: customColor.withOpacity(0.2),
       spreadRadius: -2,
       blurRadius: 6,
       offset: const Offset(0, 4),

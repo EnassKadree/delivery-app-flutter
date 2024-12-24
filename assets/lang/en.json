@@ -23,5 +23,8 @@
     "home": "home",
     "orders": "orders",
     "favourite": "favourite",
-    "cart": "cart"
+    "cart": "cart",
+    "stores": "stores",
+    "products": "products",
+    "addToCart": "add to cart"
 }  

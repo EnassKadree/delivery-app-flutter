@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../service/navigationbar/bottom_nav_cubit.dart';
 import 'components/background_container.dart';
 import 'components/custom_bottom_navigation_bar.dart';
+import 'components/home_app_bar.dart';
 import 'home_page.dart';
 
 
@@ -18,6 +19,7 @@ class HomeLayout extends StatelessWidget {
   {
     return Scaffold
     (
+      appBar: const HomeAppBar(),
       extendBodyBehindAppBar: true,
       bottomNavigationBar: const CustomBottomNavigationBar(),
       body: BlocBuilder<BottomNavCubit, int>

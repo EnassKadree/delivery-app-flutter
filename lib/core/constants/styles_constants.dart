@@ -4,6 +4,12 @@ import 'app_colors.dart';
 
 abstract class StylesConsts 
 {
+  static const TextStyle darkTextLg = TextStyle
+  (
+    color: AppColors.blackColor, 
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle titleText = TextStyle
   (
     color: AppColors.yellowColor, 
