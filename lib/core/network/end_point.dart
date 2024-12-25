@@ -4,7 +4,7 @@ abstract class EndPoint
   static const String baseUrl = 'http://10.0.2.2:8000/api/';
   // AUTH
   static const String register = 'register';
-  static const String login = 'auth/login';
+  static const String login = 'login';
 
   // CLASSES
   static const String classes = 'classes/get-classes';

@@ -4,7 +4,7 @@ extension UserSource on DataSource
 {
   void saveUser(UserModel user)  
   {
-    final userJson = jsonEncode(user.toMap());
+    final userJson = jsonEncode(user.toJson());
     prefs.setString(DataSource._userKey, userJson);
   }
 
@@ -15,7 +15,7 @@ extension UserSource on DataSource
     if (userJsonString != null) 
     {
       final Map<String, dynamic> userMap = jsonDecode(userJsonString); 
-      return UserModel.fromMap(userMap); 
+      return UserModel.fromJson(userMap); 
     }
 
     return null;

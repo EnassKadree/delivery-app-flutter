@@ -29,6 +29,8 @@ abstract class BaseCubit<State> extends Cubit<State> {
     } on SocketException catch (e) {
       handleSocketException(e, emit, failureStateBuilder);
     } catch (e) {
+      print('----------------------error------------------------');
+      print(e);
       handleGenericException(e, emit, failureStateBuilder);
     }
   }
