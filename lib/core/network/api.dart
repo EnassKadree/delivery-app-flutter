@@ -8,9 +8,11 @@ import '../../features/app/data/data_source.dart';
 
 class Api {
   Future<dynamic> postWithoutToken({required String url}) async {
+  String locale = DataSource().getLocale() ?? 'ar';
     Map<String, String> headers = {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Accept-Language': locale
     };
 
     http.Response response = await http.post(Uri.parse(url), headers: headers);
@@ -29,7 +31,7 @@ class Api {
     Map<String, String> headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/x-www-form-urlencoded',
-      'localization': locale
+      'Accept-Language': locale
     };
     http.Response response =
         await http.post(Uri.parse(url), headers: headers, body: body);
@@ -47,7 +49,7 @@ class Api {
     Map<String, String> headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/x-www-form-urlencoded',
-      'localization': locale
+      'Accept-Language': locale
     };
     http.Response response = await http.get(Uri.parse(url), headers: headers);
 
@@ -56,7 +58,7 @@ class Api {
     if (response.statusCode == 200 || response.statusCode == 202) {
       return data;
     } else {
-// throw Exception(data['message']);
+    throw Exception(data['message']);
     }
   }
 

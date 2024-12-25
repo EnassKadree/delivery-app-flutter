@@ -37,11 +37,12 @@ abstract class BaseCubit<State> extends Cubit<State> {
   ({
     required Map<String, dynamic> response,
     required T Function(Map<String, dynamic>) fromJson,
+    required String dataName
   }) 
   {
-    if (response['data'] is List) 
+    if (response[dataName] is List) 
     {
-      return (response['data'] as List)
+      return (response[dataName] as List)
           .map((data) => fromJson(data as Map<String, dynamic>))
           .toList();
     } else {

@@ -1,5 +1,6 @@
 import 'package:delivery_app/features/cart/view/cart_page.dart';
 import 'package:delivery_app/features/favourite/view/favourite_page.dart';
+import 'package:delivery_app/features/home/service/cubit/categories_cubit.dart';
 import 'package:delivery_app/features/orders/view/my_orders_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,6 +49,7 @@ class HomeLayoutWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(create: (context) => BottomNavCubit()),
+      BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
     ], child: const HomeLayout());
   }
 }
