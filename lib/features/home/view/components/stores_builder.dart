@@ -7,7 +7,7 @@ import '../../../../core/components/something_went_wrong.dart';
 import '../../../../core/functions/functions.dart';
 import '../../../../core/lists/lists.dart';
 import '../../../app/model/store.dart';
-import '../../service/cubit/stores_cubit.dart';
+import '../../service/stores/stores_cubit.dart';
 import 'stores_list.dart';
 
 class StoresBuilder extends StatelessWidget {
