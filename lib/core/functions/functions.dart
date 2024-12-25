@@ -3,8 +3,6 @@ import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
-import 'package:delivery_app/core/constants/styles_constants.dart';
-import 'package:delivery_app/features/auth/view/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,6 +10,8 @@ import 'package:iconsax/iconsax.dart';
 import '../../features/app/data/data_source.dart';
 import '../../features/app/model/user.dart';
 import '../../features/app/user/user_cubit.dart';
+import '../../features/auth/view/login.dart';
+import '../../features/home/view/home_layout.dart';
 import '../constants/app_colors.dart';
 
 

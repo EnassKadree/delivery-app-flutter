@@ -7,12 +7,11 @@ extension BuildHomeScreen on Functions
     return Builder(builder: (context) 
     {
       final user = context.read<UserCubit>().state;
-      // if (user != null) {
-      //   return const HomeLayoutWrapper();
-      // } else {
-      //   return const AuthHomePageWrapper();
-      // }
-      return LoginPage();
+      if (user != null) {
+        return const HomeLayoutWrapper();
+      } else {
+        return const LoginPageWrapper();
+      }
     });
   }
 }
