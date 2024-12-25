@@ -37,7 +37,7 @@ class StoresBuilder extends StatelessWidget {
         }
         return SomeThingWentWrongWidget(onPressed: ()
         {
-          context.read<StoresCubit>();
+          context.read<StoresCubit>().getStores();
         });
       },
     );

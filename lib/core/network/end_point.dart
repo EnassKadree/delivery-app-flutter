@@ -14,4 +14,7 @@ abstract class EndPoint
 
   // STORES
   static const String stores = 'stores';
+
+  // PRODUCTS
+  static const String products = 'products';
 }

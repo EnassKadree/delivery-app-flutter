@@ -8,11 +8,13 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../../core/constants/json_constants.dart';
 import '../../../../core/constants/styles_constants.dart';
+import '../../../app/model/product.dart';
 
 class ProductContainer extends StatelessWidget {
   const ProductContainer({
-    super.key,
+    super.key, required this.product,
   });
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -54,15 +56,15 @@ class ProductContainer extends StatelessWidget {
             ),
           ),
           8.spaceH, 
-          const Row
+          Row
           (
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: 
             [
               Text
               (
-                'product fun', 
-                style: TextStyle
+                product.name ?? '', 
+                style: const TextStyle
                 (
                   fontSize: 18,
                   fontWeight: FontWeight.bold
@@ -70,7 +72,7 @@ class ProductContainer extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 softWrap: true,
               ),
-              Text('30\$')
+              Text(product.price.toString())
             ],
           ),
           4.spaceH,
@@ -85,7 +87,7 @@ class ProductContainer extends StatelessWidget {
                 child: const Icon(Iconsax.image, size: 14,),
               ),
               4.spaceW,
-              const Text('hello kitty', style: TextStyle(fontSize: 12),)
+              Text(product.store ?? '', style: const TextStyle(fontSize: 12),)
             ],
           ),
           8.spaceH, 
