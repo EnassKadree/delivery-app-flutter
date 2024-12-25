@@ -45,6 +45,8 @@ class RegisterCubit extends BaseCubit<RegisterState> {
 
           Map<String, dynamic> response =
               await Api().postWithoutTokenWithBody(url: endPoint, body: body);
+              print('---------------response------------------------');
+              print(response.toString);
 
           emit(RegisterSuccess(response));
         },

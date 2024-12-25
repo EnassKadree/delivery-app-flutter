@@ -1,10 +1,6 @@
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:delivery_app/features/auth/service/register/register_cubit.dart';
-import 'package:delivery_app/features/auth/view/signup_profile.dart';
 import 'package:delivery_app/features/auth/view/signup_user.dart';
-import 'package:delivery_app/features/home/view/home_layout.dart';
-import 'package:delivery_app/features/home/view/home_page.dart';
-import 'package:delivery_app/features/profile/view/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

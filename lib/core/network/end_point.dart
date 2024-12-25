@@ -1,7 +1,7 @@
 abstract class EndPoint 
 {
   // BASE URL
-  static const String baseUrl = 'http://127.0.0.1:8000/api/';
+  static const String baseUrl = 'http://10.0.2.2:8000/api/';
   // AUTH
   static const String register = 'register';
   static const String login = 'auth/login';

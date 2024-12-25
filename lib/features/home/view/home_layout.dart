@@ -1,6 +1,3 @@
-import 'package:delivery_app/core/Extensions/string_extensions.dart';
-import 'package:delivery_app/core/constants/json_constants.dart';
-import 'package:delivery_app/core/constants/styles_constants.dart';
 import 'package:delivery_app/features/cart/view/cart_page.dart';
 import 'package:delivery_app/features/favourite/view/favourite_page.dart';
 import 'package:delivery_app/features/orders/view/my_orders_page.dart';
@@ -27,7 +24,8 @@ class HomeLayout extends StatelessWidget {
     return Scaffold
     (
       extendBodyBehindAppBar: true,
-    //  bottomNavigationBar: const CustomBottomNavigationBar(),
+      appBar: const HomeAppBar(),
+      bottomNavigationBar: const CustomBottomNavigationBar(),
       body: BlocBuilder<BottomNavCubit, int>(
         builder: (context, state) {
           return Stack(children: [
