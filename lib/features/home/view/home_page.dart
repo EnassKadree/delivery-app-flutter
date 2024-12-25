@@ -5,7 +5,7 @@ import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
 import 'package:delivery_app/core/lists/lists.dart';
 import 'package:delivery_app/features/app/model/category.dart';
-import 'package:delivery_app/features/home/service/cubit/categories_cubit.dart';
+import 'package:delivery_app/features/home/service/categories/categories_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
