@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../Core/constants/shadows_constatns.dart';
 import '../../../../core/constants/app_assets.dart';
+import '../../../app/model/store.dart';
 
 class StoreContainer extends StatelessWidget {
   const StoreContainer({
-    super.key,
+    super.key, required this.store,
   });
+  final StoreModel store;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class StoreContainer extends StatelessWidget {
             ),
             child: Image.asset(AppAssets.logo1String)
           ).mainPadding,
-          const Text('hello kitty')
+          Text(store.name ?? '')
         ],
       ),
     );
