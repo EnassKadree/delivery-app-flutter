@@ -23,5 +23,20 @@
     "home": "الرئيسة",
     "orders": "الطلبات",
     "favourite": "المفضلة",
-    "cart": "السلة"
+    "cart": "السلة",
+    "stores": "المتاجر", 
+    "products": "المنتجات", 
+    "addToCart": "إضافة إلى السلة" ,
+    "myProfile": "ملفي الشخصي",
+    "upDate": "تحديث",
+    "fieldIsRequired": "الحقل مطلوب",
+    "invalidEmail": "صيغة الإيميل خاطئة",
+    "atLeastThreeCharacters": "على الأقل ثلاثة محارف",
+    "tooLong": "طويل جداً",
+    "thePasswordIsTooShort": "كلمة السر قصيرة جداً",
+    "passwordIsTooLong": "كلمة السر طويلة جداً",
+    "invalidMobileNumber": "صيغة الهاتف غير صحيحة",
+    "ok": "موافق",
+    "registrationSuccessfully": "تم التسجيل بنجاح",
+    "passwordConfirmation": "تأكيد كلمة السر"
 }  
