@@ -13,22 +13,26 @@ class ProductsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder
+    return Padding
     (
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(), 
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount
+      padding: const EdgeInsets.only(bottom: 32),
+      child: GridView.builder
       (
-        childAspectRatio: .7,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        crossAxisCount: 2,
-      ), 
-      itemCount: products.length,
-      itemBuilder: (context, index)
-      {
-        return ProductContainer(product: products[index],).staggerListHorizontal(index);
-      }
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(), 
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount
+        (
+          childAspectRatio: .7,
+          crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
+          crossAxisCount: 2,
+        ), 
+        itemCount: products.length,
+        itemBuilder: (context, index)
+        {
+          return ProductContainer(product: products[index],).staggerListHorizontal(index);
+        }
+      )
     );
   }
 }

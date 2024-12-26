@@ -7,7 +7,7 @@ abstract class StylesConsts
   static const TextStyle darkTextLg = TextStyle
   (
     color: AppColors.blackColor, 
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: FontWeight.bold,
   );
   static const TextStyle titleText = TextStyle
