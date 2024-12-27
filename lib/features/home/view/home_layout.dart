@@ -18,7 +18,7 @@ class HomeLayout extends StatelessWidget {
   static const _pages = [
     HomePage(),
     MyOrdersPage(),
-    FavoritePage(),
+    FavoritePageWrapper(),
     CartPageWrapper()
   ];
   @override

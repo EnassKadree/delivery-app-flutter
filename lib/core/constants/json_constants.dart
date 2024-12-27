@@ -34,7 +34,7 @@ abstract class JsonConstants {
   // NAVIGATION BAR
   static const String home = 'home';
   static const String orders = 'orders';
-  static const String favourite = 'favourite';
+  static const String favorite = 'favourite';
   static const String cart = 'cart';
 
   // HOME SCREEN
@@ -45,7 +45,7 @@ abstract class JsonConstants {
 
   // CART SCREEN
   static const total = 'total';
-  static const sB = 'sL';
+  static const sB = 'sB';
   static const order = 'order';
 
   // VALIDATOR 

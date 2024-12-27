@@ -1,13 +1,10 @@
 import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
-import 'package:delivery_app/core/components/custom_button.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
 import 'package:delivery_app/features/cart/view/components/cart_page_bottom.dart';
-import 'package:delivery_app/features/home/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../core/constants/json_constants.dart';
 import '../service/cart products/cart_products_cubit.dart';

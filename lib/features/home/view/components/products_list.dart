@@ -30,7 +30,7 @@ class ProductsList extends StatelessWidget {
         itemCount: products.length,
         itemBuilder: (context, index)
         {
-          return ProductContainer(product: products[index],).staggerListHorizontal(index);
+          return ProductContainer(product: products[index],).staggerListVertical(index);
         }
       )
     );

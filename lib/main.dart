@@ -14,6 +14,7 @@ import 'features/app/data/data_source.dart';
 import 'features/app/locale/locale_cubit.dart';
 import 'features/app/theme/theme_cubit.dart';
 import 'features/app/user/user_cubit.dart';
+import 'features/favourite/service/favorite/favorite_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +44,7 @@ void main() async {
         BlocProvider(create: (context) => userCubit),
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => CartCubit()),
+        BlocProvider(create: (context) => FavoriteCubit()),
       ],
       child: const MyApp(),
     ),

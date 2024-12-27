@@ -7,13 +7,13 @@ final class CartInitial extends CartState {}
 final class CartLoading extends CartState {}
 final class CartSuccess extends CartState 
 {
-    final String message;
+  final String message;
 
-    CartSuccess(this.message);
+  CartSuccess(this.message);
 }
 final class CartFailure extends CartState 
 {
-    final String message;
+  final String message;
 
-    CartFailure(this.message);
+  CartFailure(this.message);
 }

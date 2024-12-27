@@ -3,6 +3,8 @@ import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/features/cart/service/cart%20products/cart_products_cubit.dart';
 import 'package:delivery_app/features/cart/service/cart/cart_cubit.dart';
+import 'package:delivery_app/features/favourite/service/favorite%20products/favorite_products_cubit.dart';
+import 'package:delivery_app/features/favourite/service/favorite/favorite_cubit.dart';
 import 'package:delivery_app/features/home/service/Products/products_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,18 +44,43 @@ class ProductContainer extends StatelessWidget {
                     ),
                     child: Image.asset(AppAssets.logo1String),
                   ),
-                  CircleAvatar(
-                    radius: 16,
-                    backgroundColor: Colors.red.withOpacity(.2),
-                    child: Icon(
-                      product.isFavorite ?? false
-                          ? Iconsax.heart2
-                          : Iconsax.heart,
-                      size: 16,
-                      color: product.isFavorite ?? false
-                          ? Colors.red[800]
-                          : Colors.white,
-                    ),
+                  BlocBuilder<FavoriteCubit, FavoriteState>
+                  (
+                    builder: (context, state) 
+                    {
+                    if(state is FavoriteFailure)
+                    {
+                      print(state.message);
+                    }
+                      return InkWell(
+                        onTap: () async{
+                          final cubit = context.read<FavoriteCubit>();
+                          if (product.isFavorite!) {
+                            await cubit.removeFromFavorite(product.id!);
+                            context.read<ProductsCubit>().getProducts();
+                            context.read<FavoriteProductsCubit>().getFavoriteProducts();
+                          } else {
+                            await cubit.addToFavorite(product.id!);
+                            context.read<ProductsCubit>().getProducts();
+                          }
+                        },
+                        child: CircleAvatar(
+                          radius: 16,
+                          backgroundColor: Colors.red.withOpacity(.2),
+                          child: state is FavoriteLoading ? 
+                            const CircularProgressIndicator():
+                            Icon(
+                              product.isFavorite ?? false
+                                  ? Iconsax.heart
+                                  : Iconsax.heart,
+                              size: 20,
+                              color: product.isFavorite ?? false
+                                  ? Colors.red[800]
+                                  : Colors.white,
+                            ),
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
@@ -100,24 +127,17 @@ class ProductContainer extends StatelessWidget {
                     topLeft: Radius.circular(12),
                     topRight: Radius.circular(12),
                   )),
-              child: BlocBuilder<CartCubit, CartState>
-              (
-                builder: (context, state) 
-                {
-                  if(state is! CartLoading)
-                  {
-                    return InkWell
-                    (
-                      onTap: () async 
-                      {
-                        if(!product.isInCart!)
-                        {
-                          await context.read<CartCubit>().addToCart(product.id!);
+              child: BlocBuilder<CartCubit, CartState>(
+                builder: (context, state) {
+                  if (state is! CartLoading) {
+                    return InkWell(
+                      onTap: () async {
+                        final cubit = context.read<CartCubit>();
+                        if (!product.isInCart!) {
+                          await cubit.addToCart(product.id!);
                           context.read<ProductsCubit>().getProducts();
-                        }
-                        else
-                        {
-                          await context.read<CartCubit>().removeFromCart(product.id!);
+                        } else {
+                          await cubit.removeFromCart(product.id!);
                           context.read<ProductsCubit>().getProducts();
                           context.read<CartProductsCubit>().getCart();
                         }
@@ -141,7 +161,11 @@ class ProductContainer extends StatelessWidget {
                       ),
                     );
                   }
-                  return const Center(child: CircularProgressIndicator(color: Colors.white,),);
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                  );
                 },
               ),
             )
