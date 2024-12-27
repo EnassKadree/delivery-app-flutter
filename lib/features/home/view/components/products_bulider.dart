@@ -7,7 +7,7 @@ import '../../../../core/components/something_went_wrong.dart';
 import '../../../../core/lists/lists.dart';
 import '../../../app/model/product.dart';
 import '../../service/Products/products_cubit.dart';
-import 'products_list.dart';
+import '../../../../core/components/products_list.dart';
 
 class ProductsBuilder extends StatelessWidget {
   const ProductsBuilder({

@@ -7,7 +7,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/components/something_went_wrong.dart';
 import '../../../../core/functions/functions.dart';
-import '../../../home/view/components/products_list.dart';
+import '../../../../core/components/products_list.dart';
 import '../../service/favorite products/favorite_products_cubit.dart';
 
 class FavoriteProductsBuilder extends StatelessWidget {

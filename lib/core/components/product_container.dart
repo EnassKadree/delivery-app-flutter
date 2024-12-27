@@ -10,10 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../core/constants/app_assets.dart';
-import '../../../../core/constants/json_constants.dart';
-import '../../../../core/constants/styles_constants.dart';
-import '../../../app/model/product.dart';
+import '../constants/app_assets.dart';
+import '../constants/json_constants.dart';
+import '../constants/styles_constants.dart';
+import '../../features/app/model/product.dart';
 
 class ProductContainer extends StatelessWidget {
   const ProductContainer({

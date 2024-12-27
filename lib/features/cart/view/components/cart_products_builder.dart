@@ -7,7 +7,7 @@ import '../../../../core/components/something_went_wrong.dart';
 import '../../../../core/functions/functions.dart';
 import '../../../../core/lists/lists.dart';
 import '../../../app/model/product.dart';
-import '../../../home/view/components/products_list.dart';
+import '../../../../core/components/products_list.dart';
 import '../../service/cart products/cart_products_cubit.dart';
 
 class CartProductsBuilder extends StatelessWidget {
