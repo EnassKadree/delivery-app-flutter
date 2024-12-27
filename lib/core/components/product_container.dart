@@ -1,11 +1,8 @@
 import 'package:delivery_app/core/Extensions/context_extension.dart';
 import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
-import 'package:delivery_app/features/cart/service/cart%20products/cart_products_cubit.dart';
 import 'package:delivery_app/features/cart/service/cart/cart_cubit.dart';
-import 'package:delivery_app/features/favourite/service/favorite%20products/favorite_products_cubit.dart';
 import 'package:delivery_app/features/favourite/service/favorite/favorite_cubit.dart';
-import 'package:delivery_app/features/home/service/Products/products_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
@@ -23,7 +20,11 @@ class ProductContainer extends StatelessWidget {
   final ProductModel product;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) 
+  {
+    Color color = product.isFavorite ?? false  ? Colors.red[800]! : Colors.white;
+    String text = product.isInCart ?? false ? JsonConstants.removeFromCart.t(context) :
+      JsonConstants.addToCart.t(context);
     return Container(
         padding: const EdgeInsets.only(right: 8, left: 8, top: 8),
         decoration: BoxDecoration(
@@ -48,35 +49,24 @@ class ProductContainer extends StatelessWidget {
                   (
                     builder: (context, state) 
                     {
-                    if(state is FavoriteFailure)
-                    {
-                      print(state.message);
-                    }
                       return InkWell(
-                        onTap: () async{
+                        onTap: (){
                           final cubit = context.read<FavoriteCubit>();
                           if (product.isFavorite!) {
-                            await cubit.removeFromFavorite(product.id!);
-                            context.read<ProductsCubit>().getProducts();
-                            context.read<FavoriteProductsCubit>().getFavoriteProducts();
+                            cubit.removeFromFavorite(product.id!);
+                            color = Colors.white;
                           } else {
-                            await cubit.addToFavorite(product.id!);
-                            context.read<ProductsCubit>().getProducts();
+                            cubit.addToFavorite(product.id!);
+                            color = Colors.red[800]!;
                           }
                         },
                         child: CircleAvatar(
                           radius: 16,
                           backgroundColor: Colors.red.withOpacity(.2),
-                          child: state is FavoriteLoading ? 
-                            const CircularProgressIndicator():
-                            Icon(
-                              product.isFavorite ?? false
-                                  ? Iconsax.heart
-                                  : Iconsax.heart,
+                          child: Icon(
+                              Iconsax.heart,
                               size: 20,
-                              color: product.isFavorite ?? false
-                                  ? Colors.red[800]
-                                  : Colors.white,
+                              color: color
                             ),
                         ),
                       );
@@ -129,41 +119,31 @@ class ProductContainer extends StatelessWidget {
                   )),
               child: BlocBuilder<CartCubit, CartState>(
                 builder: (context, state) {
-                  if (state is! CartLoading) {
-                    return InkWell(
-                      onTap: () async {
-                        final cubit = context.read<CartCubit>();
-                        if (!product.isInCart!) {
-                          await cubit.addToCart(product.id!);
-                          context.read<ProductsCubit>().getProducts();
-                        } else {
-                          await cubit.removeFromCart(product.id!);
-                          context.read<ProductsCubit>().getProducts();
-                          context.read<CartProductsCubit>().getCart();
-                        }
-                      },
-                      child: Row(
-                        children: [
-                          const Spacer(),
-                          const Icon(
-                            Iconsax.shopping_cart,
-                            color: Colors.white,
-                          ),
-                          8.spaceW,
-                          Text(
-                            product.isInCart ?? false
-                                ? JsonConstants.removeFromCart.t(context)
-                                : JsonConstants.addToCart.t(context),
-                            style: StylesConsts.whiteTextXs,
-                          ),
-                          const Spacer()
-                        ],
-                      ),
-                    );
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
+                  return InkWell(
+                    onTap: () async {
+                      final cubit = context.read<CartCubit>();
+                      if (!product.isInCart!) {
+                        cubit.addToCart(product.id!);
+                        text = JsonConstants.removeFromCart.t(context);
+                      } else {
+                        cubit.removeFromCart(product.id!);
+                        text = JsonConstants.addToCart.t(context);
+                      }
+                    },
+                    child: Row(
+                      children: [
+                        const Spacer(),
+                        const Icon(
+                          Iconsax.shopping_cart,
+                          color: Colors.white,
+                        ),
+                        8.spaceW,
+                        Text(
+                          text,
+                          style: StylesConsts.whiteTextXs,
+                        ),
+                        const Spacer()
+                      ],
                     ),
                   );
                 },
