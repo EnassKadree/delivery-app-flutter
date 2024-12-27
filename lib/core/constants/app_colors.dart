@@ -18,4 +18,10 @@ abstract class AppColors
     blueColor,
     Color.fromARGB(255, 56, 159, 154)
   ];
+  static const List<Color> yellowGradient = 
+  [
+    yellowColor,
+    lightYellowColor,
+    Color.fromARGB(255, 251, 198, 118)
+  ];
 }

@@ -1,10 +1,12 @@
 
+import 'package:delivery_app/core/Extensions/context_extension.dart';
 import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../Core/constants/shadows_constatns.dart';
 import '../../../../core/constants/app_assets.dart';
 import '../../../app/model/store.dart';
+import '../../../store/view/store_page.dart';
 
 class StoreContainer extends StatelessWidget {
   const StoreContainer({
@@ -14,33 +16,39 @@ class StoreContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container
+    return InkWell
     (
-      
-      width: MediaQuery.of(context).size.width/4,
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration
+      onTap: ()
+      {
+        context.push(StorePageWrapper(store: store));
+      },
+      child: Container
       (
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: ShadowsConsts.lg
-      ),
-      child: Column
-      (
-        children: 
-        [
-          Container
-          (
-            decoration: BoxDecoration
+        width: MediaQuery.of(context).size.width/4,
+        margin: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.all(4),
+        decoration: BoxDecoration
+        (
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: ShadowsConsts.lg
+        ),
+        child: Column
+        (
+          children: 
+          [
+            Container
             (
-              color: Colors.white.withOpacity(.4),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Image.asset(AppAssets.logo1String)
-          ).mainPadding,
-          Text(store.name ?? '')
-        ],
+              decoration: BoxDecoration
+              (
+                color: Colors.white.withOpacity(.4),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Image.asset(AppAssets.logo1String)
+            ).mainPadding,
+            Text(store.name ?? '')
+          ],
+        ),
       ),
     );
   }
