@@ -1,19 +1,13 @@
 import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
-import 'package:delivery_app/core/components/something_went_wrong.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
-import 'package:delivery_app/core/lists/lists.dart';
-import 'package:delivery_app/features/app/model/product.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../core/functions/functions.dart';
-import '../service/Products/products_cubit.dart';
 import 'components/categories_builder.dart';
-import 'components/products_list.dart';
+import 'components/products_bulider.dart';
 import 'components/stores_builder.dart';
 
 class HomePage extends StatelessWidget {
@@ -35,24 +29,7 @@ class HomePage extends StatelessWidget {
           style: StylesConsts.darkTextLg,
         ).horizontalPadding,
         16.spaceH,
-        BlocBuilder<ProductsCubit, ProductsState>(
-          builder: (context, state) 
-          {
-            if(state is! ProductsFailure)
-            {
-              List<ProductModel> products = state is ProductsSuccess ? state.products :Lists().dummyProducts();
-              return Skeletonizer
-              (
-                enabled: state is ProductsLoading,
-                child: ProductsList(products: products,)
-              );
-            }
-            return SomeThingWentWrongWidget(onPressed: ()
-            {
-              context.read<ProductsCubit>().getProducts();
-            });
-          },
-        ).horizontalPadding
+        const ProductsBuilder().horizontalPadding
       ]),
     );
   }

@@ -18,12 +18,19 @@ class HomeLayout extends StatelessWidget {
   static const _pages = [
     HomePage(),
     MyOrdersPage(),
-    FavouritePage(),
-    CartPage()
+    FavoritePage(),
+    CartPageWrapper()
   ];
   @override
   Widget build(BuildContext context) 
   {
+    List<double> heights = 
+    [
+      MediaQuery.of(context).size.height / 2.5,
+      MediaQuery.of(context).size.height / 4,
+      MediaQuery.of(context).size.height / 4,
+      MediaQuery.of(context).size.height / 2.5,
+    ];
     return Scaffold
     (
       extendBodyBehindAppBar: true,
@@ -34,7 +41,7 @@ class HomeLayout extends StatelessWidget {
           return Stack(children: [
             Positioned.fill(
               child: BackgroundContainer(
-                  height: MediaQuery.of(context).size.height / 2.5),
+                  height:heights[state])
             ),
             _pages[state],
           ]);

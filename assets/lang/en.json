@@ -39,5 +39,8 @@
     "invalidMobileNumber":"Invalid mobile number",
     "ok":"Ok",
     "registrationSuccessfully":"registration successfully",
-    "passwordConfirmation":"Password confirmation"
+    "passwordConfirmation":"Password confirmation",
+    "total": "total",
+    "sB": "S.B",
+    "order" : "order"
 }  

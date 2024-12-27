@@ -1,10 +1,10 @@
-import 'package:delivery_app/features/app/model/product.dart';
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../core/base/base_cubit.dart';
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
+import '../../../app/model/cart.dart';
 
 part 'cart_products_state.dart';
 
@@ -12,7 +12,7 @@ class CartProductsCubit extends BaseCubit<CartProductsState> {
   CartProductsCubit() : super(CartProductsInitial());
     final String endPoint = '${EndPoint.baseUrl}${EndPoint.cartProducts}';
 
-  Future<void> getProducts() async
+  Future<void> getCart() async
   {
     emit(CartProductsLoading());
 
@@ -23,13 +23,8 @@ class CartProductsCubit extends BaseCubit<CartProductsState> {
         UserModel user = await requireUser();
         Map<String, dynamic> response = await Api().get(url: endPoint, token: user.token);
 
-        List<ProductModel> products = parseResponse<ProductModel>
-        (
-          response: response,
-          fromJson: (data) => ProductModel.fromJson(data),
-          dataName: 'products'
-        );
-        emit(CartProductsSuccess(products));
+        CartModel cart = CartModel.fromJson(response);
+        emit(CartProductsSuccess(cart));
       },
       emit: emit,
       failureStateBuilder: (message) => CartProductsFailure(message),

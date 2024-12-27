@@ -18,4 +18,6 @@ abstract class EndPoint
   // PRODUCTS
   static const String products = 'products';
   static const String cartProducts = 'Cart/show';
+  static const String addToCart = 'Cart/add';
+  static const String removeFromCart = 'Cart/delete';
 }

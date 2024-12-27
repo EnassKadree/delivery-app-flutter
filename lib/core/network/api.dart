@@ -77,6 +77,7 @@ class Api {
             });
     }
     http.Response response = await http.get(Uri.parse(url), headers: headers);
+    print(response.body);
 
     if (response.statusCode == 200 || response.statusCode == 202) {
       return jsonDecode(response.body);
@@ -106,6 +107,33 @@ class Api {
     }
     http.Response response =
         await http.post(Uri.parse(url), body: body, headers: headers);
+    data = jsonDecode(response.body);
+    if (response.statusCode == 200 || response.statusCode == 202) {
+      return data;
+    } else {
+      throw Exception(data['message']);
+    }
+  }
+
+  Future<dynamic> delete(
+      {required String url,
+      @required String? token}) async {
+    Map<String, String> headers = {};
+    Map<String, dynamic> data = {};
+
+    String locale = DataSource().getLocale() ?? 'ar';
+    if (token != null) {
+      headers
+          .addAll(
+            {
+              'Authorization': 'Bearer $token', 
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Accept-Language': locale
+            });
+    }
+    http.Response response =
+        await http.delete(Uri.parse(url), headers: headers);
     data = jsonDecode(response.body);
     if (response.statusCode == 200 || response.statusCode == 202) {
       return data;

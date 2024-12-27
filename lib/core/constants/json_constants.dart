@@ -28,9 +28,9 @@ abstract class JsonConstants {
   static const String lastName = 'lastName';
   static const String address = 'address';
   static const String register = 'register';
-
   static const String myProfile = 'myProfile';
   static const String upDate = 'upDate';
+
   // NAVIGATION BAR
   static const String home = 'home';
   static const String orders = 'orders';
@@ -43,7 +43,12 @@ abstract class JsonConstants {
   static const addToCart = 'addToCart';
   static const removeFromCart = 'removeFromCart';
 
-  //validator .
+  // CART SCREEN
+  static const total = 'total';
+  static const sB = 'sL';
+  static const order = 'order';
+
+  // VALIDATOR 
   static const String fieldIsRequired = 'fieldIsRequired';
   static const String invalidEmail = 'invalidEmail';
   static const String atLeastThreeCharacters = 'atLeastThreeCharacters';

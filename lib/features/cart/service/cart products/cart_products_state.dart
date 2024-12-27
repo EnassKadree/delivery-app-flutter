@@ -7,9 +7,9 @@ final class CartProductsInitial extends CartProductsState {}
 final class CartProductsLoading extends CartProductsState {}
 final class CartProductsSuccess extends CartProductsState 
 {
-  final List<ProductModel> products;
+  final CartModel cart;
 
-  CartProductsSuccess(this.products);
+  CartProductsSuccess(this.cart);
 }
 final class CartProductsFailure extends CartProductsState 
 {

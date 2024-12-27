@@ -39,5 +39,8 @@
     "invalidMobileNumber": "صيغة الهاتف غير صحيحة",
     "ok": "موافق",
     "registrationSuccessfully": "تم التسجيل بنجاح",
-    "passwordConfirmation": "تأكيد كلمة السر"
+    "passwordConfirmation": "تأكيد كلمة السر",
+    "total": "الإجمالي",
+    "sB": "ل.س",
+    "order" : "طلب"
 }  
