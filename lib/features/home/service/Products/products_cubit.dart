@@ -4,6 +4,7 @@ import '../../../../core/base/base_cubit.dart';
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
 import '../../../app/model/product.dart';
+import '../../../app/model/user.dart';
 
 part 'products_state.dart';
 
@@ -19,7 +20,8 @@ class ProductsCubit extends BaseCubit<ProductsState> {
     (
       action: () async 
       {
-        Map<String, dynamic> response = await Api().getWithoutToken(url: endPoint);
+        UserModel user = await requireUser();
+        Map<String, dynamic> response = await Api().get(url: endPoint, token: user.token);
 
         List<ProductModel> products = parseResponse<ProductModel>
         (

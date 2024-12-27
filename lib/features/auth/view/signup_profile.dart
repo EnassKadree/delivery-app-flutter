@@ -82,7 +82,9 @@ class SignupProfilePage extends StatelessWidget {
                               phone: cubit.phoneCon.text,
                               email: cubit.emailCon.text,
                               password: cubit.passwordCon.text,
-                              address: cubit.addressCon.text);
+                              passwordConfirmation: cubit.passwordConfirmationCon.text, 
+                              address: cubit.addressCon.text
+                              );
                         }
                         //  Functions().showAlertDialog(context, true, "jl");
                       },

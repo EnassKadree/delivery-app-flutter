@@ -27,6 +27,7 @@
     "stores": "المتاجر", 
     "products": "المنتجات", 
     "addToCart": "إضافة إلى السلة" ,
+    "removeFromCart": "إزالة من السلة" ,
     "myProfile": "ملفي الشخصي",
     "upDate": "تحديث",
     "fieldIsRequired": "الحقل مطلوب",

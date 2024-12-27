@@ -27,6 +27,7 @@
     "stores": "stores",
     "products": "products",
     "addToCart": "add to cart",
+    "removeFromCart": "remove from cart",
     "myProfile":"My Profile",
     "upDate":"Up Date",
     "fieldIsRequired":"Field is required",

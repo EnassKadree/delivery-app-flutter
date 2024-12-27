@@ -18,6 +18,7 @@ class RegisterCubit extends BaseCubit<RegisterState> {
   final phoneCon = TextEditingController();
   final emailCon = TextEditingController();
   final passwordCon = TextEditingController();
+  final passwordConfirmationCon = TextEditingController();
   final addressCon = TextEditingController();
   GlobalKey<FormState> formKey1 = GlobalKey<FormState>();
   GlobalKey<FormState> formKey2 = GlobalKey<FormState>();
@@ -28,6 +29,7 @@ class RegisterCubit extends BaseCubit<RegisterState> {
     required String phone,
     required String email,
     required String password,
+    required String passwordConfirmation,
     required String address,
   }) async {
     emit(RegisterLoading());
@@ -39,7 +41,7 @@ class RegisterCubit extends BaseCubit<RegisterState> {
             "email": email,
             "phone": phone,
             "password": password,
-            "password_confirmation": password,
+            "password_confirmation": passwordConfirmation,
             "address": address
           };
 

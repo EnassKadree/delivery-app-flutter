@@ -68,7 +68,13 @@ class Api {
 
     if (token != null) {
       headers
-          .addAll({'Authorization': 'Bearer $token', 'localization': locale});
+          .addAll(
+            {
+              'Authorization': 'Bearer $token', 
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Accept-Language': locale
+            });
     }
     http.Response response = await http.get(Uri.parse(url), headers: headers);
 
@@ -76,7 +82,7 @@ class Api {
       return jsonDecode(response.body);
     } else {
       throw Exception(
-          'there is a problem with status code ${response.statusCode}');
+          'there is a problem with status code ${response.statusCode}, message: ${response.body}');
     }
   }
 
@@ -90,7 +96,13 @@ class Api {
     String locale = DataSource().getLocale() ?? 'ar';
     if (token != null) {
       headers
-          .addAll({'Authorization': 'Bearer $token', 'localization': locale});
+          .addAll(
+            {
+              'Authorization': 'Bearer $token', 
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Accept-Language': locale
+            });
     }
     http.Response response =
         await http.post(Uri.parse(url), body: body, headers: headers);

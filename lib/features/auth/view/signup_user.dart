@@ -78,7 +78,7 @@ class SignupUserPage extends StatelessWidget {
                     ),
                     8.spaceH,
                     CustomTextFromField(
-                      controller: cubit.passwordCon,
+                      controller: cubit.passwordConfirmationCon,
                       label: JsonConstants.passwordConfirmation.t(context),
                       type: TextInputType.visiblePassword,
                     ),

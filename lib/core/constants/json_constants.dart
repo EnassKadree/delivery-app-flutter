@@ -41,6 +41,7 @@ abstract class JsonConstants {
   static const stores = 'stores';
   static const products = 'products';
   static const addToCart = 'addToCart';
+  static const removeFromCart = 'removeFromCart';
 
   //validator .
   static const String fieldIsRequired = 'fieldIsRequired';

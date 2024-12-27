@@ -1,5 +1,6 @@
 
 import 'package:delivery_app/core/Extensions/context_extension.dart';
+import 'package:delivery_app/features/auth/view/login.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -41,7 +42,11 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: CircleAvatar
           (
             backgroundColor: context.colorScheme.primary,
-            child: const Icon(Iconsax.profile_circle, ),
+            child: IconButton
+            (
+              onPressed: (){context.pushAndRemoveAll(const LoginPageWrapper());},
+              icon: const Icon(Iconsax.profile_circle, )
+            ),
           ),
         ),
       ],

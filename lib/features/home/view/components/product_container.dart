@@ -50,7 +50,12 @@ class ProductContainer extends StatelessWidget {
                 (
                   radius: 16,
                   backgroundColor: Colors.red.withOpacity(.2),
-                  child: const Icon(Iconsax.heart, size: 16,),
+                  child: Icon
+                  (
+                    product.isFavorite ?? false ? Iconsax.heart2 : Iconsax.heart, 
+                    size: 16,
+                    color: product.isFavorite ?? false ? Colors.red[800] : Colors.white,
+                  ),
                 )
               ],
             ),
@@ -113,6 +118,8 @@ class ProductContainer extends StatelessWidget {
               8.spaceW, 
               Text
               (
+                product.isInCart ?? false ? 
+                JsonConstants.removeFromCart.t(context) :
                 JsonConstants.addToCart.t(context),
                 style: StylesConsts.whiteTextXs,
               ),

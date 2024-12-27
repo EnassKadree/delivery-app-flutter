@@ -9,8 +9,8 @@ import 'package:delivery_app/features/auth/view/components/custom_text_form_fiel
 import 'package:delivery_app/features/profile/view/components/app_bar_profile.dart';
 import 'package:flutter/material.dart';
 
-class Profile extends StatelessWidget {
-  const Profile({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
