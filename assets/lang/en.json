@@ -42,5 +42,6 @@
     "passwordConfirmation":"Password confirmation",
     "total": "total",
     "sB": "S.B",
-    "order" : "order"
+    "order" : "order",
+    "search" : "search"
 }  

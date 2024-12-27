@@ -48,6 +48,9 @@ abstract class JsonConstants {
   static const sB = 'sB';
   static const order = 'order';
 
+  // CATEGORY SCREEN
+  static const search = 'search';
+
   // VALIDATOR 
   static const String fieldIsRequired = 'fieldIsRequired';
   static const String invalidEmail = 'invalidEmail';

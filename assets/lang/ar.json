@@ -42,5 +42,6 @@
     "passwordConfirmation": "تأكيد كلمة السر",
     "total": "الإجمالي",
     "sB": "ل.س",
-    "order" : "طلب"
+    "order" : "طلب",
+    "search" : "بحث"
 }  

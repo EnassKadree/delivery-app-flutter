@@ -58,11 +58,11 @@ class AppTheme {
         floatingLabelStyle: TextStyle(color: secondaryColor, fontSize: 15),
         suffixIconColor: secondaryContainer,
         disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: primaryContainer, width: 1),
+          borderSide: const BorderSide(color: Colors.transparent, width: 1),
           borderRadius: BorderRadius.circular(16),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: primaryColor, width: 1),
+          borderSide: const BorderSide(color: Colors.transparent, width: 1),
           borderRadius: BorderRadius.circular(16),
         ),
         focusedBorder: OutlineInputBorder(
