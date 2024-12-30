@@ -2,6 +2,7 @@ import 'package:delivery_app/core/functions/functions.dart';
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:delivery_app/features/auth/service/register/register_cubit.dart';
 import 'package:delivery_app/features/cart/service/cart/cart_cubit.dart';
+import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,6 +46,7 @@ void main() async {
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => CartCubit()),
         BlocProvider(create: (context) => FavoriteCubit()),
+        BlocProvider(create: (context) => ProfileCubit()),
       ],
       child: const MyApp(),
     ),

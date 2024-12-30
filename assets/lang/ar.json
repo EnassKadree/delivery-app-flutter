@@ -43,5 +43,6 @@
     "total": "الإجمالي",
     "sB": "ل.س",
     "order" : "طلب",
-    "search" : "بحث"
+    "search" : "بحث",
+    "modifiedSuccessfully":"تم التعديل بنجاح"
 }  

@@ -43,5 +43,6 @@
     "total": "total",
     "sB": "S.B",
     "order" : "order",
-    "search" : "search"
+    "search" : "search",
+    "modifiedSuccessfully":"Modified successfully"
 }  

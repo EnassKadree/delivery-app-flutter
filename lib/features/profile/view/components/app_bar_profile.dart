@@ -1,3 +1,4 @@
+import 'package:delivery_app/core/Extensions/context_extension.dart';
 import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/constants/app_colors.dart';
@@ -36,7 +37,7 @@ class AppBarProfile extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () { context.pop();},
                     icon: const Icon(Icons.arrow_back,
                         color: AppColors.blueColor),
                     iconSize: 24,

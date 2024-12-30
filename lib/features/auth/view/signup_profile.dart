@@ -86,7 +86,7 @@ class SignupProfilePage extends StatelessWidget {
                               address: cubit.addressCon.text
                               );
                         }
-                        //  Functions().showAlertDialog(context, true, "jl");
+                        
                       },
                       color: context.theme.colorScheme.secondary,
                     ),

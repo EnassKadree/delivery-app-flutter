@@ -5,8 +5,10 @@ abstract class EndPoint {
   static const String register = 'register';
   static const String login = 'login';
 
-  // PROFILE
+  // PROFILE updateProfile
   static const String userInfo = 'show';
+  static const String updateProfile = 'update';
+
 
   // CATEGORIES
   static const String categories = 'categories';

@@ -1,13 +1,8 @@
-import 'package:delivery_app/Core/functions/functions.dart';
-import 'package:delivery_app/core/Extensions/context_extension.dart';
-import 'package:delivery_app/core/Extensions/space_extension.dart';
-import 'package:delivery_app/core/Extensions/string_extensions.dart';
-import 'package:delivery_app/core/components/custom_button.dart';
-import 'package:delivery_app/core/constants/app_colors.dart';
-import 'package:delivery_app/core/constants/json_constants.dart';
-import 'package:delivery_app/features/auth/view/components/custom_text_form_field.dart';
-import 'package:delivery_app/features/profile/view/components/app_bar_profile.dart';
+import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
+import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
+import 'package:delivery_app/features/profile/view/components/profile_wrapper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -18,54 +13,18 @@ class ProfilePage extends StatelessWidget {
     TextEditingController lastNameController = TextEditingController();
     TextEditingController addressController = TextEditingController();
     TextEditingController phoneController = TextEditingController();
-    return Scaffold(
-      backgroundColor: AppColors.backGroundGreyColor,
-      body: ListView(
-        physics: const BouncingScrollPhysics(),
-        children: Functions().staggeredList(
-          [
-            const AppBarProfile(),
-            60.spaceH,
-            Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                          child: Column(
-            children: [
-              CustomTextFromField(
-                controller: firstNameController,
-                label: JsonConstants.firstName.t(context),
-                type: TextInputType.name,
-              ),
-              12.spaceH,
-              CustomTextFromField(
-                controller: lastNameController,
-                label: JsonConstants.lastName.t(context),
-                type: TextInputType.name,
-              ),
-              12.spaceH,
-              CustomTextFromField(
-                controller: addressController,
-                label: JsonConstants.address.t(context),
-                type: TextInputType.name,
-              ),
-              12.spaceH,
-              CustomTextFromField(
-                controller: phoneController,
-                label: JsonConstants.phone.t(context),
-                type: TextInputType.phone,
-                readOnly: true,
-              ),
-              32.spaceH,
-              CustomButton(
-                title: JsonConstants.upDate.t(context),
-                onPressed: () {},
-                color: context.theme.colorScheme.secondary,
-              ),
-            ],
-                          ),
-                        ),
-          ],
-        ),
+    return MultiBlocProvider(providers: [
+      BlocProvider(
+        create: (context) => ProfileCubit()..getUserInfo(),
       ),
-    );
+      BlocProvider(
+        create: (context) => UpdateProfileCubit()
+          ..updateProfile(
+              firstName: firstNameController.text,
+              lastName: lastNameController.text,
+              phone: phoneController.text,
+              address: addressController.text, image: 'null'),
+      )
+    ], child: const ProfileWrapper());
   }
 }

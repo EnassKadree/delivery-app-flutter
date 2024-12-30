@@ -30,6 +30,7 @@ abstract class JsonConstants {
   static const String register = 'register';
   static const String myProfile = 'myProfile';
   static const String upDate = 'upDate';
+static const String modifiedSuccessfully = 'modifiedSuccessfully';
 
   // NAVIGATION BAR
   static const String home = 'home';
