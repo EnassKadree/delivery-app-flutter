@@ -44,5 +44,13 @@
     "sB": "S.B",
     "order" : "order",
     "search" : "search",
-    "modifiedSuccessfully":"Modified successfully"
+    "modifiedSuccessfully":"Modified successfully",
+    "description":"Description",
+    "syp":"SPY",
+    "available":"Available",
+    "items":"Items",
+    "limited":"Limited",
+    "outOfStock":"Out of stock",
+    "stock":"Stock"
+
 }  

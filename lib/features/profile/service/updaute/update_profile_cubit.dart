@@ -1,11 +1,9 @@
-import 'dart:io';
 
 import 'package:delivery_app/core/base/base_cubit.dart';
 import 'package:delivery_app/core/network/api.dart';
 import 'package:delivery_app/core/network/end_point.dart';
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:flutter/widgets.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 
 part 'update_profile_state.dart';

@@ -1,15 +1,9 @@
-import 'package:delivery_app/core/Extensions/context_extension.dart';
-import 'package:delivery_app/core/Extensions/space_extension.dart';
-import 'package:delivery_app/core/Extensions/string_extensions.dart';
-import 'package:delivery_app/core/components/custom_button.dart';
+
 import 'package:delivery_app/core/components/modal_progress_hud_nsn.dart';
 import 'package:delivery_app/core/constants/app_colors.dart';
-import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/functions/functions.dart';
-import 'package:delivery_app/features/auth/view/components/custom_text_form_field.dart';
 import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
 import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
-import 'package:delivery_app/features/profile/view/components/app_bar_profile.dart';
 import 'package:delivery_app/features/profile/view/components/profile_body.dart';
 import 'package:flutter/material.dart';
 

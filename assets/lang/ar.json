@@ -44,5 +44,12 @@
     "sB": "ل.س",
     "order" : "طلب",
     "search" : "بحث",
-    "modifiedSuccessfully":"تم التعديل بنجاح"
+    "modifiedSuccessfully":"تم التعديل بنجاح",
+    "description":"الوصف",
+    "syp":"ل.س",
+    "available":"متاح",
+    "items":"قطعة",
+    "limited":"محدودة",
+    "outOfStock":"غير متوفر",
+    "stock":"الكمية"
 }  

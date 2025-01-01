@@ -1,10 +1,8 @@
-import 'dart:io';
 
 import 'package:delivery_app/core/network/api.dart';
 import 'package:delivery_app/core/network/end_point.dart';
 import 'package:delivery_app/features/app/model/customer.dart';
 import 'package:delivery_app/features/app/model/user.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import '../../../../core/base/base_cubit.dart';
 part 'profile_state.dart';

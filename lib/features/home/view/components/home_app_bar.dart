@@ -1,5 +1,4 @@
 import 'package:delivery_app/core/Extensions/context_extension.dart';
-import 'package:delivery_app/features/auth/view/login.dart';
 import 'package:delivery_app/features/profile/view/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';

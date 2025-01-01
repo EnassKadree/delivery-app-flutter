@@ -52,6 +52,15 @@ static const String modifiedSuccessfully = 'modifiedSuccessfully';
   // CATEGORY SCREEN
   static const search = 'search';
 
+//PRODUCT   . 
+static const description = 'description';
+static const syp = 'syp';
+static const available = 'available';
+static const items = 'items';
+static const limited = 'limited';
+static const outOfStock = 'outOfStock';
+static const stock = 'stock';
+
   // VALIDATOR 
   static const String fieldIsRequired = 'fieldIsRequired';
   static const String invalidEmail = 'invalidEmail';

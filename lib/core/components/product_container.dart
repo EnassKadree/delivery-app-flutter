@@ -3,6 +3,7 @@ import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/features/cart/service/cart/cart_cubit.dart';
 import 'package:delivery_app/features/favourite/service/favorite/favorite_cubit.dart';
+import 'package:delivery_app/features/home/view/components/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
@@ -20,11 +21,11 @@ class ProductContainer extends StatelessWidget {
   final ProductModel product;
 
   @override
-  Widget build(BuildContext context) 
-  {
-    Color color = product.isFavorite ?? false  ? Colors.red[800]! : Colors.white;
-    String text = product.isInCart ?? false ? JsonConstants.removeFromCart.t(context) :
-      JsonConstants.addToCart.t(context);
+  Widget build(BuildContext context) {
+    Color color = product.isFavorite ?? false ? Colors.red[800]! : Colors.white;
+    String text = product.isInCart ?? false
+        ? JsonConstants.removeFromCart.t(context)
+        : JsonConstants.addToCart.t(context);
     return Container(
         padding: const EdgeInsets.only(right: 8, left: 8, top: 8),
         decoration: BoxDecoration(
@@ -37,20 +38,25 @@ class ProductContainer extends StatelessWidget {
             Expanded(
               child: Stack(
                 children: [
-                  Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
+                  GestureDetector(
+                    onTap: () {
+                      // context.push(ProductDetails(
+                      //   product: product,
+                      // ));
+                    },
+                    child: Container(
+                      height: double.infinity,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Image.asset(AppAssets.logo1String),
                     ),
-                    child: Image.asset(AppAssets.logo1String),
                   ),
-                  BlocBuilder<FavoriteCubit, FavoriteState>
-                  (
-                    builder: (context, state) 
-                    {
+                  BlocBuilder<FavoriteCubit, FavoriteState>(
+                    builder: (context, state) {
                       return InkWell(
-                        onTap: (){
+                        onTap: () {
                           final cubit = context.read<FavoriteCubit>();
                           if (product.isFavorite!) {
                             cubit.removeFromFavorite(product.id!);
@@ -63,11 +69,7 @@ class ProductContainer extends StatelessWidget {
                         child: CircleAvatar(
                           radius: 16,
                           backgroundColor: Colors.red.withOpacity(.2),
-                          child: Icon(
-                              Iconsax.heart,
-                              size: 20,
-                              color: color
-                            ),
+                          child: Icon(Iconsax.heart, size: 20, color: color),
                         ),
                       );
                     },

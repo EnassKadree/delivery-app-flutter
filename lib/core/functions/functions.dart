@@ -6,6 +6,7 @@ import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:intl/intl.dart';
 
 import '../../features/app/data/data_source.dart';
 import '../../features/app/model/user.dart';
@@ -26,6 +27,7 @@ part 'check_local_user.dart';
 part 'build_home_screen.dart';
 part 'show_alert_dialog.dart';
 part 'stagger_list.dart';
+part 'format_number.dart';
 class Functions 
 {
 }
