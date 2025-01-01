@@ -26,132 +26,136 @@ class ProductContainer extends StatelessWidget {
     String text = product.isInCart ?? false
         ? JsonConstants.removeFromCart.t(context)
         : JsonConstants.addToCart.t(context);
-    return Container(
-        padding: const EdgeInsets.only(right: 8, left: 8, top: 8),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      // context.push(ProductDetails(
-                      //   product: product,
-                      // ));
-                    },
-                    child: Container(
-                      height: double.infinity,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
+    return InkWell
+    (
+      onTap: (){context.push(ProductDetails(product: product));},
+      child: Container(
+          padding: const EdgeInsets.only(right: 8, left: 8, top: 8),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Stack(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        // context.push(ProductDetails(
+                        //   product: product,
+                        // ));
+                      },
+                      child: Container(
+                        height: double.infinity,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Image.asset(AppAssets.logo1String),
                       ),
-                      child: Image.asset(AppAssets.logo1String),
+                    ),
+                    BlocBuilder<FavoriteCubit, FavoriteState>(
+                      builder: (context, state) {
+                        return InkWell(
+                          onTap: () {
+                            final cubit = context.read<FavoriteCubit>();
+                            if (product.isFavorite!) {
+                              cubit.removeFromFavorite(product.id!);
+                              color = Colors.white;
+                            } else {
+                              cubit.addToFavorite(product.id!);
+                              color = Colors.red[800]!;
+                            }
+                          },
+                          child: CircleAvatar(
+                            radius: 16,
+                            backgroundColor: Colors.red.withOpacity(.2),
+                            child: Icon(Iconsax.heart, size: 20, color: color),
+                          ),
+                        );
+                      },
+                    )
+                  ],
+                ),
+              ),
+              8.spaceH,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    product.name ?? '',
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: true,
+                  ),
+                  Text(product.price.toString())
+                ],
+              ),
+              4.spaceH,
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 12,
+                    backgroundColor: context.colorScheme.primary.withOpacity(.4),
+                    child: const Icon(
+                      Iconsax.image,
+                      size: 14,
                     ),
                   ),
-                  BlocBuilder<FavoriteCubit, FavoriteState>(
-                    builder: (context, state) {
-                      return InkWell(
-                        onTap: () {
-                          final cubit = context.read<FavoriteCubit>();
-                          if (product.isFavorite!) {
-                            cubit.removeFromFavorite(product.id!);
-                            color = Colors.white;
-                          } else {
-                            cubit.addToFavorite(product.id!);
-                            color = Colors.red[800]!;
-                          }
-                        },
-                        child: CircleAvatar(
-                          radius: 16,
-                          backgroundColor: Colors.red.withOpacity(.2),
-                          child: Icon(Iconsax.heart, size: 20, color: color),
-                        ),
-                      );
-                    },
+                  4.spaceW,
+                  Text(
+                    product.store ?? '',
+                    style: const TextStyle(fontSize: 12),
                   )
                 ],
               ),
-            ),
-            8.spaceH,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  product.name ?? '',
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                  overflow: TextOverflow.ellipsis,
-                  softWrap: true,
+              8.spaceH,
+              Container(
+                padding: const EdgeInsets.all(4),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: context.colorScheme.primary,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12),
+                    )),
+                child: BlocBuilder<CartCubit, CartState>(
+                  builder: (context, state) {
+                    return InkWell(
+                      onTap: () async {
+                        final cubit = context.read<CartCubit>();
+                        if (!product.isInCart!) {
+                          cubit.addToCart(product.id!);
+                          text = JsonConstants.removeFromCart.t(context);
+                        } else {
+                          cubit.removeFromCart(product.id!);
+                          text = JsonConstants.addToCart.t(context);
+                        }
+                      },
+                      child: Row(
+                        children: [
+                          const Spacer(),
+                          const Icon(
+                            Iconsax.shopping_cart,
+                            color: Colors.white,
+                          ),
+                          8.spaceW,
+                          Text(
+                            text,
+                            style: StylesConsts.whiteTextXs,
+                          ),
+                          const Spacer()
+                        ],
+                      ),
+                    );
+                  },
                 ),
-                Text(product.price.toString())
-              ],
-            ),
-            4.spaceH,
-            Row(
-              children: [
-                CircleAvatar(
-                  radius: 12,
-                  backgroundColor: context.colorScheme.primary.withOpacity(.4),
-                  child: const Icon(
-                    Iconsax.image,
-                    size: 14,
-                  ),
-                ),
-                4.spaceW,
-                Text(
-                  product.store ?? '',
-                  style: const TextStyle(fontSize: 12),
-                )
-              ],
-            ),
-            8.spaceH,
-            Container(
-              padding: const EdgeInsets.all(4),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  color: context.colorScheme.primary,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    topRight: Radius.circular(12),
-                  )),
-              child: BlocBuilder<CartCubit, CartState>(
-                builder: (context, state) {
-                  return InkWell(
-                    onTap: () async {
-                      final cubit = context.read<CartCubit>();
-                      if (!product.isInCart!) {
-                        cubit.addToCart(product.id!);
-                        text = JsonConstants.removeFromCart.t(context);
-                      } else {
-                        cubit.removeFromCart(product.id!);
-                        text = JsonConstants.addToCart.t(context);
-                      }
-                    },
-                    child: Row(
-                      children: [
-                        const Spacer(),
-                        const Icon(
-                          Iconsax.shopping_cart,
-                          color: Colors.white,
-                        ),
-                        8.spaceW,
-                        Text(
-                          text,
-                          style: StylesConsts.whiteTextXs,
-                        ),
-                        const Spacer()
-                      ],
-                    ),
-                  );
-                },
-              ),
-            )
-          ],
-        ));
+              )
+            ],
+          )),
+    );
   }
 }
