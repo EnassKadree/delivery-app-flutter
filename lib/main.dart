@@ -30,7 +30,7 @@ void main() async {
     userCubit.login(user);
   }
 
-  final locale = savedLocale != null ? Locale(savedLocale) : const Locale('en');
+  final locale = savedLocale != null ? Locale(savedLocale) : const Locale('ar');
   final theme = savedTheme == 'dark' ? Themes.dark : Themes.light;
 
   runApp(
