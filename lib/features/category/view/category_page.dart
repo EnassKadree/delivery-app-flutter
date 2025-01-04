@@ -17,6 +17,7 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) 
   {
+    final cubit = context.read<CategoryProductsCubit>();
     return Scaffold
     (
       body: ListView
@@ -25,7 +26,12 @@ class CategoryPage extends StatelessWidget {
         children: 
         [
           32.spaceH,
-          CustomSearchBar(controller: TextEditingController()),
+          CustomSearchBar
+          (
+            controller: cubit.searchController,
+            onTap: ()
+            { cubit.getCategoryProducts(category.id!, cubit.searchController.text); },
+          ),
           SizedBox
           (
             height: MediaQuery.of(context).size.height/5,

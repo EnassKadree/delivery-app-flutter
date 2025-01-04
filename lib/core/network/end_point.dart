@@ -28,4 +28,5 @@ abstract class EndPoint {
   static const String homeSearch = 'search';
   static const String cartSearch = 'cart/search';
   static const String storeSearch = 'store/search';
+  static const String categorySearch = 'category/search';
 }
