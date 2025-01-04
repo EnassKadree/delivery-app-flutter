@@ -9,7 +9,8 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return AnimatedContainer(
+        duration: const Duration(milliseconds: 500),
         width: double.infinity,
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: color),

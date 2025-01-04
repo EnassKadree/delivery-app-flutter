@@ -20,14 +20,18 @@ class CartPageBottom extends StatelessWidget {
         (
           builder: (context, state) 
           {
-            String total = state is CartProductsSuccess ? state.cart.totalPrice.toString() : '00.0';
-            return Skeletonizer
+            int? total = state is CartProductsSuccess ? state.cart.totalPrice : 00;
+            return Visibility
             (
-              enabled: state is CartProductsLoading,
-              child: Text(
-                "${JsonConstants.total.t(context)}: $total ${JsonConstants.sB.t(context)}",
-                style: Theme.of(context).textTheme.bodyLarge,
-              ).horizontalPadding,
+              visible: total != null,
+              child: Skeletonizer
+              (
+                enabled: state is CartProductsLoading,
+                child: Text(
+                  "${JsonConstants.total.t(context)}: $total ${JsonConstants.sB.t(context)}",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ).horizontalPadding,
+              ),
             );
           },
         ),
@@ -35,7 +39,7 @@ class CartPageBottom extends StatelessWidget {
           child: CustomButton(
             title: JsonConstants.order.t(context),
             onPressed: () {},
-          ), // Constrain width with Expanded
+          ), 
         ),
       ],
     ).mainPadding;

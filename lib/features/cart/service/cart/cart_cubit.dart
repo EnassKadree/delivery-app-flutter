@@ -10,8 +10,8 @@ part 'cart_state.dart';
 class CartCubit extends BaseCubit<CartState> 
 {
   CartCubit() : super(CartInitial());
-    final String endPoint1 = '${EndPoint.baseUrl}${EndPoint.addToCart}';
-    final String endPoint2 = '${EndPoint.baseUrl}${EndPoint.removeFromCart}';
+    final String addEndPoint = '${EndPoint.baseUrl}${EndPoint.addToCart}';
+    final String removeEndPoint = '${EndPoint.baseUrl}${EndPoint.removeFromCart}';
 
   Future<void> addToCart(int productId) async
   {
@@ -23,7 +23,7 @@ class CartCubit extends BaseCubit<CartState>
       {
         UserModel user = await requireUser();
         // ignore: missing_required_param
-        Map<String, dynamic> response = await Api().post(url: '$endPoint1/$productId', token: user.token);
+        Map<String, dynamic> response = await Api().post(url: '$addEndPoint/$productId', token: user.token);
         emit(CartSuccess(response['message']));
       },
       emit: emit,
@@ -40,7 +40,7 @@ class CartCubit extends BaseCubit<CartState>
       {
         UserModel user = await requireUser();
         // ignore: missing_required_param
-        Map<String, dynamic> response = await Api().delete(url: '$endPoint2/$productId', token: user.token);
+        Map<String, dynamic> response = await Api().delete(url: '$removeEndPoint/$productId', token: user.token);
         emit(CartSuccess(response['message']));
       },
       emit: emit,
