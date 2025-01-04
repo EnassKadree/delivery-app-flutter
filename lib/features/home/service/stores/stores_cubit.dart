@@ -1,17 +1,20 @@
 import 'package:meta/meta.dart';
 
 import '../../../../core/base/base_cubit.dart';
+import '../../../../core/functions/functions.dart';
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
 import '../../../app/model/store.dart';
+import '../../../app/model/user.dart';
 
 part 'stores_state.dart';
 
 class StoresCubit extends BaseCubit<StoresState> {
   StoresCubit() : super(StoresInitial());
   final String endPoint = '${EndPoint.baseUrl}${EndPoint.stores}';
+  final String searchEndPoint= '${EndPoint.baseUrl}${EndPoint.homeSearch}';
 
-  Future<void> getStores() async
+  Future<void> getStores([String? searchString]) async
   {
     emit(StoresLoading());
 
@@ -19,7 +22,13 @@ class StoresCubit extends BaseCubit<StoresState> {
     (
       action: () async 
       {
-        Map<String, dynamic> response = await Api().getWithoutToken(url: endPoint);
+        UserModel user = await requireUser();
+        String url;
+        if(searchString != null)
+        { url = Functions().handleParams(searchEndPoint, searchString); }
+        else
+        { url = endPoint; }
+        Map<String, dynamic> response = await Api().get(url: url, token: user.token);
 
         List<StoreModel> stores = parseResponse<StoreModel>
         (
