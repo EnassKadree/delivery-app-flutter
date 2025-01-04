@@ -25,7 +25,7 @@ class CategoryPage extends StatelessWidget {
         children: 
         [
           32.spaceH,
-          const CustomSearchBar(),
+          CustomSearchBar(controller: TextEditingController()),
           SizedBox
           (
             height: MediaQuery.of(context).size.height/5,

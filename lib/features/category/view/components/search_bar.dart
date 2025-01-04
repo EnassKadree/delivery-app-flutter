@@ -10,8 +10,11 @@ import '../../../auth/view/components/custom_text_form_field.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
-    super.key,
+    super.key, this.color, this.onTap, required this.controller,
   });
+  final Color? color;
+  final TextEditingController controller;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +27,20 @@ class CustomSearchBar extends StatelessWidget {
           child: CustomTextFromField
           (
             label: JsonConstants.search.t(context), 
-            controller: TextEditingController(), 
+            controller: controller, 
             type: TextInputType.text
           ),
         ),
         8.spaceW,
-        CircleAvatar
+        InkWell
         (
-          radius: 24,
-          backgroundColor: context.colorScheme.secondary.withOpacity(.8),
-          child: const Icon(Iconsax.search_normal)
+          onTap: onTap,
+          child: CircleAvatar
+          (
+            radius: 24,
+            backgroundColor: color ?? context.colorScheme.secondary.withOpacity(.8),
+            child: const Icon(Iconsax.search_normal)
+          ),
         )
       ],
     );

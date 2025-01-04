@@ -23,7 +23,7 @@ class CartPage extends StatelessWidget {
         //padding: const EdgeInsets.only(top: 32),
         children: 
         [
-          Text(JsonConstants.cart.t(context), style: StylesConsts.darkTextLg),
+          Text(JsonConstants.cart.t(context), style: StylesConsts.darkTextLg).staggerListVertical(0),
           16.spaceH,
           const CartProductsBuilder()
         ],

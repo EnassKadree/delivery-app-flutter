@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 
 import '../../../../core/base/base_cubit.dart';
+import '../../../../core/functions/functions.dart';
 import '../../../../core/network/api.dart';
 import '../../../../core/network/end_point.dart';
 import '../../../app/model/product.dart';
@@ -11,8 +12,9 @@ part 'products_state.dart';
 class ProductsCubit extends BaseCubit<ProductsState> {
   ProductsCubit() : super(ProductsInitial());
     final String endPoint = '${EndPoint.baseUrl}${EndPoint.products}';
+    final String searchEndPoint = '${EndPoint.baseUrl}${EndPoint.homeSearch}';
 
-  Future<void> getProducts() async
+  Future<void> getProducts([String? searchString]) async
   {
     emit(ProductsLoading());
 
@@ -21,7 +23,12 @@ class ProductsCubit extends BaseCubit<ProductsState> {
       action: () async 
       {
         UserModel user = await requireUser();
-        Map<String, dynamic> response = await Api().get(url: endPoint, token: user.token);
+        String url;
+        if(searchString != null)
+        { url = Functions().handleParams(searchEndPoint, searchString); }
+        else
+        { url = endPoint; }
+        Map<String, dynamic> response = await Api().get(url: url, token: user.token);
 
         List<ProductModel> products = parseResponse<ProductModel>
         (

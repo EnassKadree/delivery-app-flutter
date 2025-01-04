@@ -9,7 +9,6 @@ abstract class EndPoint {
   static const String userInfo = 'show';
   static const String updateProfile = 'update';
 
-
   // CATEGORIES
   static const String categories = 'categories';
 
@@ -24,4 +23,7 @@ abstract class EndPoint {
   static const String favoriteProducts = 'Favorites';
   static const String addToFavorite = 'Favorite/add';
   static const String removeFromFavorite = 'Favorite/delete';
+
+  // SEARCH
+  static const String homeSearch = 'search';
 }

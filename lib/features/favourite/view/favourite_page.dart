@@ -1,5 +1,6 @@
 import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
+import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
 import 'package:delivery_app/features/favourite/service/favorite%20products/favorite_products_cubit.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class FavoritePage extends StatelessWidget {
       (
         children:
         [
-          Text(JsonConstants.favorite.t(context), style: StylesConsts.darkTextLg,),
+          Text(JsonConstants.favorite.t(context), style: StylesConsts.darkTextLg,).staggerListVertical(0),
           16.spaceH,
           const FavoriteProductsBuilder()
         ]

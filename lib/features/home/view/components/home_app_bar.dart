@@ -44,17 +44,17 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       ],
-      title: CircleAvatar(
-        radius: 22,
-        backgroundColor: Colors.white.withOpacity(.4),
-        child: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Iconsax.search_normal,
-            color: context.colorScheme.primary,
-          ),
-        ),
-      ),
+      // title: CircleAvatar(
+      //   radius: 22,
+      //   backgroundColor: Colors.white.withOpacity(.4),
+      //   child: IconButton(
+      //     onPressed: () {},
+      //     icon: Icon(
+      //       Iconsax.search_normal,
+      //       color: context.colorScheme.primary,
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
