@@ -17,6 +17,7 @@ class StorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) 
   {
+    final cubit = context.read<StoreProductsCubit>();
     final String locale = DataSource().getLocale() ?? 'ar';
     return Scaffold
     (
@@ -26,7 +27,14 @@ class StorePage extends StatelessWidget {
         children: 
         [
           32.spaceH,
-          CustomSearchBar(controller: TextEditingController(),),
+          CustomSearchBar
+          (
+            controller: cubit.searchController,
+            onTap: ()
+            {
+              cubit.getStoreProducts(store.id!, cubit.searchController.text);
+            },
+          ),
           SizedBox
           (
             height: MediaQuery.of(context).size.height/5,
