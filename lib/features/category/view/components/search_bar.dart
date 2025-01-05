@@ -28,7 +28,8 @@ class CustomSearchBar extends StatelessWidget {
           (
             label: JsonConstants.search.t(context), 
             controller: controller, 
-            type: TextInputType.text
+            type: TextInputType.text,
+            onChanged: onTap
           ),
         ),
         8.spaceW,

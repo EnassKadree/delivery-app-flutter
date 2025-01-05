@@ -8,12 +8,13 @@ class CustomTextFromField extends StatelessWidget {
     required this.label,
     required this.controller,
     required this.type,
-    this.readOnly = false,
+    this.readOnly = false, this.onChanged,
   });
   final String label;
   final TextEditingController controller;
   final TextInputType type;
   final bool readOnly;
+  final void Function()? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -23,6 +24,11 @@ class CustomTextFromField extends StatelessWidget {
       obscureText: type == TextInputType.visiblePassword,
       keyboardType: type,
       decoration: InputDecoration(hintText: label),
+      onChanged: (value)
+      {
+        if(onChanged != null)
+        {onChanged!();}
+      },
       validator: (value) {
         if (type == TextInputType.phone) {
           return Functions().phoneValidator(value, context);
@@ -34,9 +40,6 @@ class CustomTextFromField extends StatelessWidget {
         if (type == TextInputType.visiblePassword) {
           return Functions().passwordValidator(value, context);
         }
-        // if (type == TextInputType.name) {
-        //   return Functions().nameValidator(value, context);
-        // }
         return Functions().nameValidator(value, context);
       },
     );
