@@ -71,4 +71,10 @@ static const stock = 'stock';
   static const String invalidMobileNumber = 'invalidMobileNumber';
   static const String ok = 'ok';
   static const String registrationSuccessfully = 'registrationSuccessfully';
+
+  // SETTINGS
+  static const String darkMode = 'darkMode';
+  static const String language = 'language';
+  static const String currentLanguage = 'currentLanguage';
+  static const String logout = 'logout';
 }

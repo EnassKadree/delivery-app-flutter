@@ -51,5 +51,9 @@
     "items":"قطعة",
     "limited":"محدودة",
     "outOfStock":"غير متوفر",
-    "stock":"الكمية"
+    "stock":"الكمية",
+    "darkMode": "الوضع الليلي",
+    "language": "اللغة",
+    "currentLanguage": "العربية",
+    "logout": "تسجيل الخروج"
 }  

@@ -51,6 +51,9 @@
     "items":"Items",
     "limited":"Limited",
     "outOfStock":"Out of stock",
-    "stock":"Stock"
-
+    "stock":"Stock",
+    "darkMode" : "dark mode",
+    "language" : "language",
+    "currentLanguage" : "english",
+    "logout" : "logout"
 }  

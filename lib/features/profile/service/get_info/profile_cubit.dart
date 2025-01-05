@@ -12,7 +12,7 @@ class ProfileCubit extends BaseCubit<ProfileState> {
   final String endPoint = '${EndPoint.baseUrl}${EndPoint.userInfo}';
 
   Future<void> getUserInfo() async {
-    emit(ProfileLoding());
+    emit(ProfileLoading());
 
     await executeWithCatch(
       action: () async {

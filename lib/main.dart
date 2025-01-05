@@ -36,12 +36,8 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => LocaleCubit(locale),
-        ),
-        BlocProvider(
-          create: (context) => ThemeCubit(theme),
-        ),
+        BlocProvider(create: (context) => LocaleCubit(locale),),
+        BlocProvider(create: (context) => ThemeCubit(theme),),
         BlocProvider(create: (context) => userCubit),
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => CartCubit()),
@@ -72,7 +68,10 @@ class MyApp extends StatelessWidget {
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
                   theme: AppTheme.lightTheme,
-                  themeMode: ThemeMode.light,
+                  darkTheme: AppTheme.darkTheme,
+                  themeMode: theme == Themes.dark
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
                   localizationsDelegates: const [
                     AppLocalizations.delegate,
                     GlobalMaterialLocalizations.delegate,

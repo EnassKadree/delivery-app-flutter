@@ -36,13 +36,13 @@ class _UserAvatarState extends State<UserAvatar> {
   Widget build(BuildContext context) {
     return GestureDetector( onTap: _pickImage,
       child: CircleAvatar(
-        radius: 50,
-        backgroundColor: Colors.grey[300],
+        radius: 60,
+        backgroundColor: Colors.white.withOpacity(.7),
         child: selectedImageUrl == null && (widget.imageUrl == null || widget.imageUrl!.isEmpty)
             ? IconButton(
                 icon: const Icon(
                   Iconsax.user_add,
-                  size: 40,
+                  size: 60,
                   color: AppColors.blueColor,
                 ),
                 onPressed: _pickImage, // Open the image picker

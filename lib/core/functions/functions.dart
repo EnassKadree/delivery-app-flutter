@@ -9,11 +9,14 @@ import 'package:iconsax/iconsax.dart';
 import 'package:intl/intl.dart';
 
 import '../../features/app/data/data_source.dart';
+import '../../features/app/locale/locale_cubit.dart';
 import '../../features/app/model/user.dart';
+import '../../features/app/theme/theme_cubit.dart';
 import '../../features/app/user/user_cubit.dart';
 import '../../features/auth/view/login.dart';
 import '../../features/home/view/home_layout.dart';
 import '../constants/app_colors.dart';
+import '../constants/styles_constants.dart';
 
 
 
@@ -28,6 +31,7 @@ part 'build_home_screen.dart';
 part 'show_alert_dialog.dart';
 part 'stagger_list.dart';
 part 'format_number.dart';
+part 'show_settings_dialog.dart';
 class Functions 
 {
 }

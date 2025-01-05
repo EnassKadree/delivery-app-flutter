@@ -1,3 +1,4 @@
+import 'package:delivery_app/core/Extensions/context_extension.dart';
 import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/features/app/model/product.dart';
@@ -36,9 +37,9 @@ class AddToCartButtonBuilder extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
+                Icon(
                   Iconsax.shopping_cart,
-                  color: Colors.white,
+                  color: context.colorScheme.primaryContainer,
                 ),
                 8.spaceW,
                 Text(

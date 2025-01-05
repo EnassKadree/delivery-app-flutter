@@ -10,7 +10,7 @@ final class ProfileSuccess extends ProfileState {
   ProfileSuccess(this.customer );
 }
 
-final class ProfileLoding extends ProfileState {}
+final class ProfileLoading extends ProfileState {}
 
 final class ProfileFailure extends ProfileState {
   final String message;

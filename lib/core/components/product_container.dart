@@ -26,7 +26,7 @@ class ProductContainer extends StatelessWidget {
       (
           padding: const EdgeInsets.only(right: 8, left: 8, top: 8),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: context.colorScheme.surfaceContainer,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column

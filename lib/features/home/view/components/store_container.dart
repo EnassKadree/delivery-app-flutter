@@ -29,7 +29,7 @@ class StoreContainer extends StatelessWidget {
         padding: const EdgeInsets.all(4),
         decoration: BoxDecoration
         (
-          color: Colors.white,
+          color: context.colorScheme.surfaceContainer,
           borderRadius: BorderRadius.circular(12),
           boxShadow: ShadowsConsts.lg
         ),
@@ -41,7 +41,6 @@ class StoreContainer extends StatelessWidget {
             (
               decoration: BoxDecoration
               (
-                color: Colors.white.withOpacity(.4),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Image.asset(AppAssets.logo1String)

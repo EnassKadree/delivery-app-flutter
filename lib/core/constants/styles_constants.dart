@@ -10,6 +10,12 @@ abstract class StylesConsts
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
+  static const TextStyle darkTextSm = TextStyle
+  (
+    color: AppColors.blackColor, 
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+  );
   static const TextStyle titleText = TextStyle
   (
     color: AppColors.yellowColor, 
@@ -48,5 +54,10 @@ abstract class StylesConsts
     color: AppColors.white,
     fontSize: 28,
     fontWeight: FontWeight.bold,
+  );
+  static const TextStyle greyTextSm = TextStyle
+  (
+    fontSize: 14,
+    color: Colors.grey,
   );
 }
