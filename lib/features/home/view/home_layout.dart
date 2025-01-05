@@ -1,12 +1,9 @@
 import 'package:delivery_app/features/cart/view/cart_page.dart';
 import 'package:delivery_app/features/favourite/view/favourite_page.dart';
-import 'package:delivery_app/features/home/service/categories/categories_cubit.dart';
 import 'package:delivery_app/features/orders/view/my_orders_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../service/Products/products_cubit.dart';
-import '../service/stores/stores_cubit.dart';
 import '../service/navigationbar/bottom_nav_cubit.dart';
 import 'components/background_container.dart';
 import 'components/custom_bottom_navigation_bar.dart';
@@ -16,7 +13,7 @@ import 'home_page.dart';
 class HomeLayout extends StatelessWidget {
   const HomeLayout({super.key});
   static const _pages = [
-    HomePage(),
+    HomePageWrapper(),
     MyOrdersPage(),
     FavoritePageWrapper(),
     CartPageWrapper()
@@ -58,9 +55,6 @@ class HomeLayoutWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(create: (context) => BottomNavCubit()),
-      BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
-      BlocProvider(create: (context) => StoresCubit()..getStores()),
-      BlocProvider(create: (context) => ProductsCubit()..getProducts())
     ], child: const HomeLayout());
   }
 }

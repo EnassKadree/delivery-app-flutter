@@ -16,6 +16,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
     return Container
     (
       margin: const EdgeInsets.only(bottom: 24, right: 24, left: 24),
+      decoration: BoxDecoration
+      (
+        boxShadow: [BoxShadow
+        (
+          color: context.theme.colorScheme.primaryContainer,
+          spreadRadius: 0,
+          blurRadius: 5
+        )],
+      ),
       child: BlocBuilder<BottomNavCubit, int>
       (
         builder: (context, state) 
@@ -25,7 +34,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             child: BottomNavigationBar
             (
-              backgroundColor: context.colorScheme.surfaceContainer,
               currentIndex: state,
               onTap: (index) => context.read<BottomNavCubit>().updateTab(index),
               items: 

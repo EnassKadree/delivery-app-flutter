@@ -62,21 +62,12 @@ class ProfilePageWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController firstNameController = TextEditingController();
-    TextEditingController lastNameController = TextEditingController();
-    TextEditingController addressController = TextEditingController();
-    TextEditingController phoneController = TextEditingController();
     return MultiBlocProvider(providers: [
       BlocProvider(
         create: (context) => ProfileCubit()..getUserInfo(),
       ),
       BlocProvider(
         create: (context) => UpdateProfileCubit()
-          ..updateProfile(
-              firstName: firstNameController.text,
-              lastName: lastNameController.text,
-              phone: phoneController.text,
-              address: addressController.text, image: 'null'),
       )
     ], child: const ProfilePage());
   }

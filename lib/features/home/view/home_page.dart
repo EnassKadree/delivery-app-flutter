@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/functions/functions.dart';
+import '../service/categories/categories_cubit.dart';
 import 'components/categories_builder.dart';
 import 'components/products_bulider.dart';
 import 'components/stores_builder.dart';
@@ -47,6 +48,24 @@ class HomePage extends StatelessWidget {
         16.spaceH,
         const ProductsBuilder().horizontalPadding
       ]),
+    );
+  }
+}
+
+class HomePageWrapper extends StatelessWidget {
+  const HomePageWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider
+    (
+      providers: 
+      [
+        BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
+        BlocProvider(create: (context) => StoresCubit()..getStores()),
+        BlocProvider(create: (context) => ProductsCubit()..getProducts())
+      ], 
+      child: const HomePage()
     );
   }
 }
