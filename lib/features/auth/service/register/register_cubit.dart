@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../../Core/base/base_cubit.dart';
 import '../../../../Core/network/api.dart';
 import '../../../../Core/network/end_point.dart';
+import '../../../app/data/data_source.dart';
+import '../../../app/model/user.dart';
 
 part 'register_state.dart';
 
@@ -47,6 +49,8 @@ class RegisterCubit extends BaseCubit<RegisterState> {
 
           Map<String, dynamic> response =
               await Api().postWithoutTokenWithBody(url: endPoint, body: body);
+          UserModel user =UserModel.fromJson(response);
+          DataSource().saveUser(user);
 
           emit(RegisterSuccess(response));
         },
