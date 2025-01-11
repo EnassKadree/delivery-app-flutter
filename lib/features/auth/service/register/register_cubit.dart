@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../Core/base/base_cubit.dart';
 import '../../../../Core/network/api.dart';
@@ -36,7 +37,10 @@ class RegisterCubit extends BaseCubit<RegisterState> {
   }) async {
     emit(RegisterLoading());
     await executeWithCatch(
-        action: () async {
+      
+        action: () async { 
+          final prefs = await SharedPreferences.getInstance();
+      String? fcmToken = prefs.getString('fcm_token');
           Map<String, dynamic> body = {
             "first_name": firstName,
             "last_name": lastName,
@@ -44,7 +48,8 @@ class RegisterCubit extends BaseCubit<RegisterState> {
             "phone": phone,
             "password": password,
             "password_confirmation": passwordConfirmation,
-            "address": address
+            "address": address,
+         //   "fcm_token":fcmToken
           };
 
           Map<String, dynamic> response =
