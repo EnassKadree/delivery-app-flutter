@@ -7,7 +7,6 @@ import 'package:delivery_app/features/cart/service/cart/cart_cubit.dart';
 import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
 import 'package:delivery_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,12 +22,12 @@ import 'features/app/user/user_cubit.dart';
 import 'features/favourite/service/favorite/favorite_cubit.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    await Future.wait([
-    PushNotificationsService.init(),
-    LocalNotificationService.init(),
-  ]);
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  //   await Future.wait([
+  //   PushNotificationsService.init(),
+  //   LocalNotificationService.init(),
+  // ]);
 
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();

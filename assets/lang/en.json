@@ -55,5 +55,8 @@
     "darkMode" : "dark mode",
     "language" : "language",
     "currentLanguage" : "english",
-    "logout" : "logout"
+    "logout" : "logout",
+    "completed":"completed",
+    "inProgress":"in the way",
+    "pending":"pending"
 }  

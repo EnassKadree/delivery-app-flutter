@@ -77,4 +77,8 @@ static const stock = 'stock';
   static const String language = 'language';
   static const String currentLanguage = 'currentLanguage';
   static const String logout = 'logout';
+  //ORDERS completed
+static const String completed = 'completed';
+static const String inProgress = 'inProgress';
+static const String pending = 'pending';
 }

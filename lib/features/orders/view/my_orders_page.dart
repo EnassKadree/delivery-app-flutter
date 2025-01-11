@@ -1,3 +1,4 @@
+import 'package:delivery_app/features/orders/view/components/custom_order.dart';
 import 'package:flutter/material.dart';
 
 class MyOrdersPage extends StatelessWidget {
@@ -5,6 +6,11 @@ class MyOrdersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return const CustomOrder();
+      },
+    );
   }
 }

@@ -55,5 +55,8 @@
     "darkMode": "الوضع الليلي",
     "language": "اللغة",
     "currentLanguage": "العربية",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "completed":"مكتمل", 
+    "inProgress":"في الطريق",
+    "pending":"قيد التجهيز"
 }  
