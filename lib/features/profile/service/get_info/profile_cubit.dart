@@ -1,4 +1,3 @@
-
 import 'package:delivery_app/core/network/api.dart';
 import 'package:delivery_app/core/network/end_point.dart';
 import 'package:delivery_app/features/app/model/customer.dart';

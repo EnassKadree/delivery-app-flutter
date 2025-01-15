@@ -4,21 +4,24 @@ import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/constants/app_colors.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
-import 'package:delivery_app/core/functions/functions.dart';
-import 'package:delivery_app/features/orders/view/components/request_order.dart';
+import 'package:delivery_app/features/app/model/order.dart';
+import 'package:delivery_app/features/orders/view/components/show_order.dart';
 
 import 'package:flutter/material.dart';
 
 class CustomOrder extends StatelessWidget {
   const CustomOrder({
     super.key,
+    required this.order,
   });
-
+  final OrderModel order;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.push(const RequestOrder());
+        if (order.status == "pending") {
+          context.push(const ShowOrder());
+        }
       },
       child: Card(
         shape: RoundedRectangleBorder(
@@ -34,25 +37,26 @@ class CustomOrder extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Order Number : 12463222",
+                    Text(
+                        "${JsonConstants.orderNamber.t(context)} : ${order.id}",
                         style: StylesConsts.midTitleText.copyWith(
                             fontSize: 20, color: AppColors.blueColor)),
                     4.spaceH,
                     Row(
                       children: [
                         Text(
-                          "State: ",
+                          "${JsonConstants.status.t(context)}: ",
                           style: StylesConsts.midTitleText.copyWith(
                               fontSize: 20, color: AppColors.blueColor),
                         ),
-                        getStatusText("completed", context)
+                        getStatusText(order.status ?? " ", context)
                       ],
                     )
                   ],
                 ),
               ),
               Text(
-                "2/2/2025",
+                order.totalPrice.toString(),
                 style: StylesConsts.greyTextSm,
               ),
             ],

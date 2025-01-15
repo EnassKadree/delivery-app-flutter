@@ -49,7 +49,7 @@ class RegisterCubit extends BaseCubit<RegisterState> {
             "password": password,
             "password_confirmation": passwordConfirmation,
             "address": address,
-         //   "fcm_token":fcmToken
+            "fcm_token":fcmToken??" "
           };
 
           Map<String, dynamic> response =

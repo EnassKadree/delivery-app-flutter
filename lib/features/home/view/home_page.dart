@@ -6,6 +6,7 @@ import 'package:delivery_app/core/constants/styles_constants.dart';
 import 'package:delivery_app/features/category/view/components/search_bar.dart';
 import 'package:delivery_app/features/home/service/Products/products_cubit.dart';
 import 'package:delivery_app/features/home/service/stores/stores_cubit.dart';
+import 'package:delivery_app/features/orders/service/cubit/order_post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -63,7 +64,8 @@ class HomePageWrapper extends StatelessWidget {
       [
         BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
         BlocProvider(create: (context) => StoresCubit()..getStores()),
-        BlocProvider(create: (context) => ProductsCubit()..getProducts())
+        BlocProvider(create: (context) => ProductsCubit()..getProducts()),
+       // BlocProvider ( create: (context) => OrderPostCubit()),
       ], 
       child: const HomePage()
     );

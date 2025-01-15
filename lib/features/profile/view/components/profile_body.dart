@@ -26,8 +26,7 @@ class ProfileBody extends StatelessWidget {
               context, true, JsonConstants.modifiedSuccessfully.t(context));
         }
         if (state is ProfileUpdateFailure) {
-          print('---------------------------------------------');
-          print(state.message);
+          
           Functions().showAlertDialog(context, false, state.message);
         }
       },

@@ -1,5 +1,9 @@
+import 'package:delivery_app/core/Extensions/context_extension.dart';
 import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
+import 'package:delivery_app/core/components/add_to_cart_button_builder.dart';
+import 'package:delivery_app/features/orders/service/cubit/order_post_cubit.dart';
+import 'package:delivery_app/features/orders/view/components/show_order_confirmation_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -13,19 +17,15 @@ class CartPageBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row
-    (
+    int? total;
+    return Row(
       children: [
-        BlocBuilder<CartProductsCubit, CartProductsState>
-        (
-          builder: (context, state) 
-          {
-            int? total = state is CartProductsSuccess ? state.cart.totalPrice : 00;
-            return Visibility
-            (
+        BlocBuilder<CartProductsCubit, CartProductsState>(
+          builder: (context, state) {
+            total = state is CartProductsSuccess ? state.cart.totalPrice : 00;
+            return Visibility(
               visible: total != null,
-              child: Skeletonizer
-              (
+              child: Skeletonizer(
                 enabled: state is CartProductsLoading,
                 child: Text(
                   "${JsonConstants.total.t(context)}: $total ${JsonConstants.sB.t(context)}",
@@ -38,8 +38,10 @@ class CartPageBottom extends StatelessWidget {
         Expanded(
           child: CustomButton(
             title: JsonConstants.order.t(context),
-            onPressed: () {},
-          ), 
+            onPressed: () {
+              showOrderConfirmationDialog(context, total ?? 0);
+            },
+          ),
         ),
       ],
     ).mainPadding;

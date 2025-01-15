@@ -1,6 +1,7 @@
 import 'package:delivery_app/core/Extensions/space_extension.dart';
 import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
 import 'package:delivery_app/features/cart/view/components/cart_page_bottom.dart';
+import 'package:delivery_app/features/orders/service/cubit/order_post_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -48,6 +49,7 @@ class CartPageWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
       BlocProvider(create: (context) => CartProductsCubit()..getCart()),
+    
     ], child: const CartPage());
   }
 }

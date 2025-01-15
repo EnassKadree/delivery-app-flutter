@@ -58,5 +58,10 @@
     "logout": "تسجيل الخروج",
     "completed":"مكتمل", 
     "inProgress":"في الطريق",
-    "pending":"قيد التجهيز"
+    "pending":"قيد التجهيز",
+    "confirmOrder":"تأكيد الطلب",
+    "status":"حالة",
+    "confirmation":"تأكيد",
+    "cancel":"إلغاء"
+
 }  

@@ -29,7 +29,7 @@
     "addToCart": "add to cart",
     "removeFromCart": "remove from cart",
     "myProfile":"My Profile",
-    "upDate":"Up Date",
+    "upDate":"UpDate",
     "fieldIsRequired":"Field is required",
     "invalidEmail":"Invalid email",
     "atLeastThreeCharacters":"At least three characters",
@@ -58,5 +58,9 @@
     "logout" : "logout",
     "completed":"completed",
     "inProgress":"in the way",
-    "pending":"pending"
+    "pending":"pending",  
+    "confirmOrder":"confirm order",
+    "status":"Status",
+    "confirmation":"Confirmation",
+    "cancel":"Cancel"
 }  
