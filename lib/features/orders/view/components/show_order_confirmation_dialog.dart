@@ -16,7 +16,7 @@ void showOrderConfirmationDialog(BuildContext context, int price) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      final profileCubit = BlocProvider.of<ProfileCubit>(context);
+      //final profileCubit = BlocProvider.of<ProfileCubit>(context);
       final updateProfileCubit = BlocProvider.of<UpdateProfileCubit>(context);
 
       return MultiBlocListener(

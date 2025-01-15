@@ -1,8 +1,6 @@
 import 'package:delivery_app/features/cart/view/cart_page.dart';
 import 'package:delivery_app/features/favourite/view/favourite_page.dart';
 import 'package:delivery_app/features/orders/view/my_orders_page.dart';
-import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
-import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -2,9 +2,7 @@ import 'package:delivery_app/core/base/base_cubit.dart';
 import 'package:delivery_app/core/network/api.dart';
 import 'package:delivery_app/core/network/end_point.dart';
 import 'package:delivery_app/features/app/model/user.dart';
-import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'order_post_state.dart';

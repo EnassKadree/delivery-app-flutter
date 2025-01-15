@@ -1,5 +1,4 @@
 import 'package:delivery_app/core/Extensions/context_extension.dart';
-import 'package:delivery_app/core/constants/app_assets.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
 import 'package:delivery_app/features/app/model/category.dart';
 import 'package:flutter/material.dart';

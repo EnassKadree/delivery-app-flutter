@@ -1,7 +1,6 @@
 import 'package:delivery_app/features/app/data/data_source.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../Core/base/base_cubit.dart';
 import '../../../../Core/network/api.dart';
@@ -27,14 +26,16 @@ class LoginCubit extends BaseCubit<LoginState> {
     await executeWithCatch
     (
       action: () async
-      {  final prefs = await SharedPreferences.getInstance();
-      String? fcmToken = prefs.getString('fcm_token');
+      {  
+      // final prefs = await SharedPreferences.getInstance();
+      // String? fcmToken = prefs.getString('fcm_token');
         Map<String, dynamic> body = 
         {
           'phone' : phone,
           'password' : password,
           'email' : email,
-        //  "fcm_token":fcmToken
+          // "fcm_token":fcmToken
+          'fcm_token' : 'ex'
         };
 
       Map<String,dynamic> response = await Api().postWithoutTokenWithBody(url: endPoint, body: body);
