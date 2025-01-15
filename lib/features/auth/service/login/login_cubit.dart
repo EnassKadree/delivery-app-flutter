@@ -34,7 +34,7 @@ class LoginCubit extends BaseCubit<LoginState> {
           'phone' : phone,
           'password' : password,
           'email' : email,
-        //  "fcm_token":fcmToken
+         "fcm_token":fcmToken??"jhdfhbbngdfshklgs"
         };
 
       Map<String,dynamic> response = await Api().postWithoutTokenWithBody(url: endPoint, body: body);

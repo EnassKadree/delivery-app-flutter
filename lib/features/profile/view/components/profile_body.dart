@@ -5,6 +5,7 @@ import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
 import 'package:delivery_app/core/functions/functions.dart';
 import 'package:delivery_app/features/auth/view/components/custom_text_form_field.dart';
+import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
 import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
 import 'package:delivery_app/features/profile/view/components/app_bar_profile.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +20,11 @@ class ProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<UpdateProfileCubit>(context);
+    
     return BlocConsumer<UpdateProfileCubit, UpdateProfileState>(
       listener: (context, state) {
-        if (state is ProfileUpdateSuccess) {
+        if (state is ProfileUpdateSuccess) { 
+          BlocProvider.of<ProfileCubit>(context).getUserInfo();
           Functions().showAlertDialog(
               context, true, JsonConstants.modifiedSuccessfully.t(context));
         }

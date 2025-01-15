@@ -31,12 +31,10 @@ void showOrderConfirmationDialog(BuildContext context, int price) {
           BlocListener<UpdateProfileCubit, UpdateProfileState>(
             listener: (context, state) {
               if (state is ProfileUpdateSuccess) {
-                // عرض رسالة النجاح عند التحديث
                 Functions()
                     .showSnackBar(context, "Address updated successfully!");
               }
               if (state is ProfileUpdateFailure) {
-                // عرض رسالة الفشل عند التحديث
                 Functions().showAlertDialog(context, false, state.message);
               }
             },
@@ -110,8 +108,6 @@ class OrderAlertDialog extends StatelessWidget {
         ElevatedButton(
           onPressed: () {
             final updatedAddress = addressController.text;
-
-            // تحديث العنوان باستخدام UpdateProfileCubit
             updateProfileCubit.updateProfile(
               firstName: updateProfileCubit.firstNameCon.text,
               lastName: updateProfileCubit.lastNameCon.text,
@@ -119,12 +115,11 @@ class OrderAlertDialog extends StatelessWidget {
               address: updatedAddress,
               image: "",
             );
-
-            // تأكيد الطلب
+            print(updatedAddress);
             BlocProvider.of<OrderPostCubit>(context).postOrder(
               address: updatedAddress,
             );
-
+BlocProvider.of<ProfileCubit>(context).getUserInfo();
             Navigator.of(context).pop();
           },
           child: Text(JsonConstants.confirmation.t(context)),

@@ -11,7 +11,6 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/functions/functions.dart';
 
-
 class AppBarProfile extends StatelessWidget {
   const AppBarProfile({
     super.key,
@@ -22,18 +21,15 @@ class AppBarProfile extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        ClipPath
-        (
+        ClipPath(
           clipper: CustomCurveClipper3(),
-          child: Container
-          (
+          child: Container(
               width: double.infinity,
               height: 200,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: AppColors.yellowGradient),
               ),
-              child: null
-          ),
+              child: null),
         ),
         const Positioned(
           bottom: -40,
@@ -41,8 +37,7 @@ class AppBarProfile extends StatelessWidget {
           right: 0,
           child: UserAvatar(),
         ),
-        AppBar
-        (
+        AppBar(
           centerTitle: false,
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
@@ -50,19 +45,29 @@ class AppBarProfile extends StatelessWidget {
             children: [
               16.spaceH,
               Row(
-                children: 
-                [
+                children: [
                   IconButton(
-                    onPressed: () { Functions().showSettingsDialog(context); },
-                    icon: const Icon(Iconsax.menu_1,
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(Icons.arrow_back,
                         color: AppColors.blueColor),
                     iconSize: 32,
                   ),
-                  Text
-                  (
+                  const Spacer(),
+                  Text(
                     JsonConstants.myProfile.t(context),
-                    style: StylesConsts.darkTextLg.copyWith(color: AppColors.blueColor),
+                    style: StylesConsts.darkTextLg
+                        .copyWith(color: AppColors.blueColor),
                   ).horizontalPadding,
+                  IconButton(
+                    onPressed: () {
+                      Functions().showSettingsDialog(context);
+                    },
+                    icon:
+                        const Icon(Iconsax.menu_1, color: AppColors.blueColor),
+                    iconSize: 32,
+                  ),
                 ],
               ),
             ],

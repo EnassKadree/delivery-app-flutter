@@ -56,7 +56,7 @@ class CustomOrder extends StatelessWidget {
                 ),
               ),
               Text(
-                order.totalPrice.toString(),
+               formatOrderDate(order.createdAt??DateTime.now()) ,
                 style: StylesConsts.greyTextSm,
               ),
             ],
@@ -86,4 +86,11 @@ Widget getStatusText(String status, BuildContext context) {
         style: TextStyle(fontSize: 14, color: AppColors.backGroundGreyColor),
       );
   }
+}
+String formatOrderDate(DateTime createdAt) {
+  String day = createdAt.day.toString(); // اليوم
+  String month = createdAt.month.toString(); // الشهر
+  String year = createdAt.year.toString(); // السنة
+
+  return "$day/$month/$year";
 }
