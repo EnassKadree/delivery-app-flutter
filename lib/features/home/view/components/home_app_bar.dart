@@ -21,17 +21,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: false,
       backgroundColor: Colors.transparent,
       actions: [
-        CircleAvatar(
-          radius: 22,
-          backgroundColor: Colors.white.withOpacity(.4),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Iconsax.notification,
-              color: context.colorScheme.primary,
-            ),
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: CircleAvatar(
