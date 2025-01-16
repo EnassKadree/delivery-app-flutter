@@ -1,6 +1,10 @@
 abstract class EndPoint {
   // BASE URL
   static const String baseUrl = 'http://10.0.2.2:8000/api/';  
+
+  // STORAGE 
+  static const String storageBaseUrl = 'http://10.0.2.2:8000/storage/';  
+  
   // AUTH
   static const String register = 'register';
   static const String login = 'login';
@@ -29,7 +33,9 @@ abstract class EndPoint {
   static const String cartSearch = 'cart/search';
   static const String storeSearch = 'store/search';
   static const String categorySearch = 'category/search';
-  //ORDERS order
-static const String orders = 'orders';
-static const String order = 'order';
+
+  // ORDERS order
+  static const String orders = 'orders';
+  static const String order = 'order';
+
 }

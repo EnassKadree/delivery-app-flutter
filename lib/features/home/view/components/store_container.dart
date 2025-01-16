@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../Core/constants/shadows_constatns.dart';
 import '../../../../core/constants/app_assets.dart';
+import '../../../../core/network/end_point.dart';
 import '../../../app/model/store.dart';
 import '../../../store/view/store_page.dart';
 
@@ -43,7 +44,16 @@ class StoreContainer extends StatelessWidget {
               (
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Image.asset(AppAssets.logo1String)
+              child: Image.network(
+                store.image != null && store.image!.isNotEmpty
+                    ? '${EndPoint.storageBaseUrl}${store.image}'
+                    : '',
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(AppAssets.logo1String);
+                },
+                width: 50,
+                height: 50,
+              )
             ).mainPadding,
             Text(store.name ?? '')
           ],

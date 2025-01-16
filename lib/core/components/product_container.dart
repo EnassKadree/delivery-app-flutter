@@ -4,6 +4,7 @@ import 'package:delivery_app/features/product/view/product_details.dart';
 import 'package:flutter/material.dart';
 
 
+import '../network/end_point.dart';
 import 'add_to_cart_button_builder.dart';
 import 'favorite_button.dart';
 import 'store_name.dart';
@@ -42,7 +43,14 @@ class ProductContainer extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Image.asset(AppAssets.logo1String),
+                      child: Image.network(
+                      product.image != null && product.image!.isNotEmpty
+                          ? '${EndPoint.storageBaseUrl}${product.image}'
+                          : '',
+                      errorBuilder: (context, error, stackTrace) {
+                        return Image.asset(AppAssets.logo1String);
+                      },
+                    )
                     ),
                     FavoriteButton(product: product)
                   ],

@@ -1,5 +1,7 @@
 import 'package:delivery_app/core/Extensions/context_extension.dart';
+import 'package:delivery_app/core/constants/app_assets.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
+import 'package:delivery_app/core/network/end_point.dart';
 import 'package:delivery_app/features/app/model/category.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -65,12 +67,16 @@ class CategoryContainer extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.white.withOpacity(.4)),
                     child: Image.network(
-  'http://127.0.0.1:8000/storage/categories/6qiQWMny1LOFjhqQ1ASykoe3dtKcJhZr41JKub8E.png',
-  width: 100,
-  height: 100,
- 
- 
-),),
+                      category.image != null && category.image!.isNotEmpty
+                          ? '${EndPoint.storageBaseUrl}${category.image}'
+                          : '',
+                      errorBuilder: (context, error, stackTrace) {
+                        return Image.asset(AppAssets.logo1String);
+                      },
+                      width: 100,
+                      height: 100,
+                    )
+                  ),
               ],
             ),
           ],
