@@ -10,9 +10,10 @@ import '../../service/Quantity Cubit/quantity_cubit.dart';
 
 class QuantitySelector extends StatelessWidget 
 {
-  const QuantitySelector({super.key, required this.onQuantityChanged, required this.product});
+  const QuantitySelector({super.key, required this.onQuantityChanged, required this.product, this.cart = true});
   final ValueChanged<int> onQuantityChanged;
   final ProductModel product;
+  final bool cart;
 
   @override
   Widget build(BuildContext context) 
@@ -32,12 +33,15 @@ class QuantitySelector extends StatelessWidget
             {
               quantityCubit.decrement();
               onQuantityChanged(quantityCubit.state); //* I'm trying to notify the parent here
-              context.read<CartCubit>().removeOneFromCart(product.id!);
+              if(cart)
+              {
+                context.read<CartCubit>().removeOneFromCart(product.id!);
+                Future.delayed(const Duration(seconds: 3), () 
+                {
+                  context.read<CartProductsCubit>().getCart();
+                });
+              }
             }
-            Future.delayed(const Duration(seconds: 3), () 
-            {
-              context.read<CartProductsCubit>().getCart();
-            });
           },
         ),
         BlocBuilder<QuantityCubit, int>
@@ -54,11 +58,14 @@ class QuantitySelector extends StatelessWidget
             final quantityCubit = context.read<QuantityCubit>();
               quantityCubit.increment();
               onQuantityChanged(quantityCubit.state); //* I'm trying to notify the parent here
-              context.read<CartCubit>().addToCart(product.id!);
-              Future.delayed(const Duration(seconds: 3), () 
+              if(cart)
               {
-                context.read<CartProductsCubit>().getCart();
-              });
+                context.read<CartCubit>().addToCart(product.id!);
+                Future.delayed(const Duration(seconds: 3), () 
+                {
+                  context.read<CartProductsCubit>().getCart();
+                });
+              }
           },
         ),
         IconButton
@@ -66,8 +73,11 @@ class QuantitySelector extends StatelessWidget
           icon: const Icon(Iconsax.close_circle),
           onPressed: ()
           {
-            context.read<CartCubit>().removeFromCart(product.id!);
-            context.read<CartProductsCubit>().getCart();
+            if(cart)
+            {
+              context.read<CartCubit>().removeFromCart(product.id!);
+              context.read<CartProductsCubit>().getCart();
+            }
           }
         )
       ],

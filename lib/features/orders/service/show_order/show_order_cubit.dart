@@ -12,13 +12,13 @@ class ShowOrderCubit extends BaseCubit<ShowOrderState> {
   ShowOrderCubit() : super(ShowOrderInitial());
   final String endPoint = '${EndPoint.baseUrl}${EndPoint.orders}';
 
-  Future<void> getOrders(int orderId) async {
+  Future<void> getOrders() async {
     emit(ShowOrderLoading());
 
     await executeWithCatch(
       action: () async {
         UserModel user = await requireUser();
-        String url = '$endPoint/$orderId';
+        String url = endPoint;
         Map<String, dynamic> response =
             await Api().get(url: url, token: user.token);
 

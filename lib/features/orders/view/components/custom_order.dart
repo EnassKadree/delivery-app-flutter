@@ -21,7 +21,7 @@ class CustomOrder extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (order.status == "pending") {
-          context.push(const ShowOrderPageWrapper());
+          context.push(ShowOrderPageWrapper(orderId: order.id!));
         }
       },
       child: Card(
