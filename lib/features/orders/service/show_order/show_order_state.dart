@@ -8,7 +8,7 @@ final class ShowOrderInitial extends ShowOrderState {}
 final class ShowOrderLoading extends ShowOrderState {}
 
 final class ShowOrderSuccess extends ShowOrderState {
-  final List<OrderDetailsModel> orders;
+  final List<OrderModel> orders;
 
   ShowOrderSuccess(this.orders);
 }

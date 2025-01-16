@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ShowOrderPage extends StatelessWidget 
 {
   const ShowOrderPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Container());
+  Widget build(BuildContext context) 
+  {
+    return const Scaffold
+    (
+    );
   }
 }
 
@@ -16,6 +20,11 @@ class ShowOrderPageWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) 
   {
-    return Container();
+    return MultiBlocProvider(providers: 
+    const [
+
+    ], 
+    child: const ShowOrderPage()
+    );
   }
 }
