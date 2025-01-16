@@ -34,6 +34,10 @@ class QuantitySelector extends StatelessWidget
               onQuantityChanged(quantityCubit.state); //* I'm trying to notify the parent here
               context.read<CartCubit>().removeOneFromCart(product.id!);
             }
+            Future.delayed(const Duration(seconds: 3), () 
+            {
+              context.read<CartProductsCubit>().getCart();
+            });
           },
         ),
         BlocBuilder<QuantityCubit, int>
@@ -45,12 +49,16 @@ class QuantitySelector extends StatelessWidget
         ),
         IconButton(
           icon: const Icon(Iconsax.add),
-          onPressed: () 
+          onPressed: () async
           { 
             final quantityCubit = context.read<QuantityCubit>();
               quantityCubit.increment();
               onQuantityChanged(quantityCubit.state); //* I'm trying to notify the parent here
               context.read<CartCubit>().addToCart(product.id!);
+              Future.delayed(const Duration(seconds: 3), () 
+              {
+                context.read<CartProductsCubit>().getCart();
+              });
           },
         ),
         IconButton
