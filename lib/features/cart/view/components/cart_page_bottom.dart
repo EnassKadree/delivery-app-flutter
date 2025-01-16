@@ -14,11 +14,12 @@ class CartPageBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int? total;
+    int? total; bool isCartEmpty = false;
     return Row(
       children: [
         BlocBuilder<CartProductsCubit, CartProductsState>(
           builder: (context, state) {
+            isCartEmpty = state is CartProductsSuccess?state.cart.products!.isNotEmpty:false;
             total = state is CartProductsSuccess ? state.cart.totalPrice : 00;
             return Visibility(
               visible: total != null,
@@ -35,8 +36,10 @@ class CartPageBottom extends StatelessWidget {
         Expanded(
           child: CustomButton(
             title: JsonConstants.order.t(context),
-            onPressed: () {
-              showOrderConfirmationDialog(context, total ?? 0);
+            onPressed: () { if (isCartEmpty) {
+                showOrderConfirmationDialog(context, total ?? 0);
+              }
+            
             },
           ),
         ),
