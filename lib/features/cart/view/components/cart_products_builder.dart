@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -7,8 +6,8 @@ import '../../../../core/components/something_went_wrong.dart';
 import '../../../../core/functions/functions.dart';
 import '../../../../core/lists/lists.dart';
 import '../../../app/model/product.dart';
-import '../../../../core/components/products_list.dart';
 import '../../service/cart products/cart_products_cubit.dart';
+import 'cart_products_list.dart';
 
 class CartProductsBuilder extends StatelessWidget {
   const CartProductsBuilder({
@@ -35,7 +34,7 @@ class CartProductsBuilder extends StatelessWidget {
           return Skeletonizer
           (
             enabled: state is CartProductsLoading,
-            child: ProductsList(products: products)
+            child: CartProductsList(products: products)
           );
         }
         return SomeThingWentWrongWidget(onPressed: ()

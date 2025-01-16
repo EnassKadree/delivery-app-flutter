@@ -7,12 +7,13 @@ class ProductModel
   int? price;
   String? store;
   String? storeImage;
+  int? quantity;
   int? stock;
   String? image;
   bool? isInCart;
   bool? isFavorite;
 
-  ProductModel({this.id, this.name, this.description, this.category, this.price, this.store, this.storeImage, this.stock, this.image, this.isInCart, this.isFavorite});
+  ProductModel({this.id, this.name, this.description, this.category, this.price, this.store, this.storeImage, this.stock,this.quantity, this.image, this.isInCart, this.isFavorite});
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     if(json["id"] is int) {
@@ -39,6 +40,9 @@ class ProductModel
     if(json["stock"] is int) {
       stock = json["stock"];
     }
+    if(json["quantity"] is int) {
+      quantity = json["quantity"];
+    }
     if(json["image"] is String) {
       image = json["image"];
     }
@@ -55,18 +59,19 @@ class ProductModel
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["name"] = name;
-    _data["description"] = description;
-    _data["category"] = category;
-    _data["price"] = price;
-    _data["store"] = store;
-    _data["store_image"] = storeImage;
-    _data["stock"] = stock;
-    _data["image"] = image;
-    _data["isInCart"] = isInCart;
-    _data["isFavorite"] = isFavorite;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["description"] = description;
+    data["category"] = category;
+    data["price"] = price;
+    data["store"] = store;
+    data["store_image"] = storeImage;
+    data["stock"] = stock;
+    data["quantity"] = quantity;
+    data["image"] = image;
+    data["isInCart"] = isInCart;
+    data["isFavorite"] = isFavorite;
+    return data;
   }
 }

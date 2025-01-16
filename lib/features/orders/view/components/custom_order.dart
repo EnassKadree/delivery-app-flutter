@@ -38,7 +38,7 @@ class CustomOrder extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        "${JsonConstants.orderNamber.t(context)} : ${order.id}",
+                        "${JsonConstants.orderNumber.t(context)} : ${order.id}",
                         style: StylesConsts.midTitleText.copyWith(
                             fontSize: 20, color: AppColors.blueColor)),
                     4.spaceH,

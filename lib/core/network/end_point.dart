@@ -24,6 +24,7 @@ abstract class EndPoint {
   static const String cartProducts = 'Cart/show';
   static const String addToCart = 'Cart/add';
   static const String removeFromCart = 'Cart/delete';
+  static const String removeOneFromCart = 'Cart/delete/one';
   static const String favoriteProducts = 'Favorites';
   static const String addToFavorite = 'Favorite/add';
   static const String removeFromFavorite = 'Favorite/delete';
