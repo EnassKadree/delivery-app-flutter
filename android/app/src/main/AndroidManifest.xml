@@ -6,7 +6,7 @@
     <application
         android:label="delivery_app"
         android:usesCleartextTraffic="true"
-        android:name="${applicationName}"
+        android:name="${Wassilli}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

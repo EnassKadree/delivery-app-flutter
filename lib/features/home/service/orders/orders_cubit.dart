@@ -26,13 +26,13 @@ class OrdersCubit extends BaseCubit<OrdersState> {
             await Api().get(url: endPoint, token: user.token);
 
 
-        List<OrderModel> stores = parseResponse<OrderModel>
+        List<OrderModel> order = parseResponse<OrderModel>
         (
           response: response,
           fromJson: (data) => OrderModel.fromJson(data),
           dataName: 'orders'
         );
-        emit(OrdersSuccess(stores));
+        emit(OrdersSuccess(order));
       },
       emit: emit,
       failureStateBuilder: (message) => OrdersFailure(message),

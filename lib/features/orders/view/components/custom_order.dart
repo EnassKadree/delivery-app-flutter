@@ -4,10 +4,11 @@ import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/constants/app_colors.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/constants/styles_constants.dart';
-import 'package:delivery_app/features/app/model/order.dart';
-import 'package:delivery_app/features/orders/view/components/show_order.dart';
+import 'package:delivery_app/features/orders/view/show_order.dart';
 
 import 'package:flutter/material.dart';
+
+import '../../../app/model/order.dart';
 
 class CustomOrder extends StatelessWidget {
   const CustomOrder({
@@ -20,7 +21,7 @@ class CustomOrder extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         if (order.status == "pending") {
-          context.push(const ShowOrder());
+          context.push(const ShowOrderPageWrapper());
         }
       },
       child: Card(

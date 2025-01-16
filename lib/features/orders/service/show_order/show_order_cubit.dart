@@ -1,7 +1,7 @@
 import 'package:delivery_app/core/base/base_cubit.dart';
 import 'package:delivery_app/core/network/api.dart';
 import 'package:delivery_app/core/network/end_point.dart';
-import 'package:delivery_app/features/app/model/order.dart';
+import 'package:delivery_app/features/app/model/order_details.dart';
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:meta/meta.dart';
 
@@ -21,9 +21,9 @@ class ShowOrderCubit extends BaseCubit<ShowOrderState> {
         Map<String, dynamic> response =
             await Api().get(url: url, token: user.token);
 
-        List<OrderModel> orders = parseResponse<OrderModel>(
+        List<OrderDetailsModel> orders = parseResponse<OrderDetailsModel>(
           response: response,
-          fromJson: (data) => OrderModel.fromJson(data),
+          fromJson: (data) => OrderDetailsModel.fromJson(data),
           dataName: 'orders',
         );
         emit(ShowOrderSuccess(orders));
