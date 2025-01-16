@@ -4,7 +4,7 @@ import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/components/modal_progress_hud_nsn.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/functions/functions.dart';
-import 'package:delivery_app/features/orders/service/cubit/order_post_cubit.dart';
+import 'package:delivery_app/features/orders/service/post_order/order_post_cubit.dart';
 import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
 import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
 import 'package:flutter/material.dart';
