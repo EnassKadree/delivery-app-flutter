@@ -38,7 +38,7 @@ extension Orders on Lists {
         totalPrice: 100.0,
         address: "1010 شارع الجامعة",
         customerId: 104,
-        createdAt: DateTime.now().subtract(Duration(days: 4)),
+        createdAt: DateTime.now().subtract(const Duration(days: 4)),
         updatedAt: DateTime.now(),
       ),
     ];

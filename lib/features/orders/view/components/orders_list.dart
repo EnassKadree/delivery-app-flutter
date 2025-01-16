@@ -1,7 +1,8 @@
 import 'package:delivery_app/core/Extensions/widget.extenstion.dart';
-import 'package:delivery_app/features/app/model/order.dart';
 import 'package:delivery_app/features/orders/view/components/custom_order.dart';
 import 'package:flutter/material.dart';
+
+import '../../../app/model/order.dart';
 
 class OrdersList extends StatelessWidget {
   const OrdersList({super.key, required this.orders});

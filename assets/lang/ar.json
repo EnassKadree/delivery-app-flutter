@@ -63,6 +63,5 @@
     "status":"حالة",
     "confirmation":"تأكيد",
     "cancel":"إلغاء",
-    "orderNamber":"رقم الطلب"
-
+    "orderNumber": "رقم الطلب"
 }  

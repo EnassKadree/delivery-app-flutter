@@ -1,9 +1,10 @@
 import 'package:delivery_app/core/base/base_cubit.dart';
 import 'package:delivery_app/core/network/api.dart';
 import 'package:delivery_app/core/network/end_point.dart';
-import 'package:delivery_app/features/app/model/order.dart';
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:meta/meta.dart';
+
+import '../../../app/model/order.dart';
 
 part 'show_order_state.dart';
 

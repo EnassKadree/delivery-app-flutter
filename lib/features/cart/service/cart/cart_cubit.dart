@@ -12,6 +12,7 @@ class CartCubit extends BaseCubit<CartState>
   CartCubit() : super(CartInitial());
     final String addEndPoint = '${EndPoint.baseUrl}${EndPoint.addToCart}';
     final String removeEndPoint = '${EndPoint.baseUrl}${EndPoint.removeFromCart}';
+    final String removeOneEndPoint = '${EndPoint.baseUrl}${EndPoint.removeOneFromCart}';
 
   Future<void> addToCart(int productId) async
   {
@@ -30,6 +31,7 @@ class CartCubit extends BaseCubit<CartState>
       failureStateBuilder: (message) => CartFailure(message),
     );
   }
+
   Future<void> removeFromCart (int productId) async
   {
     emit(CartLoading());
@@ -41,6 +43,24 @@ class CartCubit extends BaseCubit<CartState>
         UserModel user = await requireUser();
         // ignore: missing_required_param
         Map<String, dynamic> response = await Api().delete(url: '$removeEndPoint/$productId', token: user.token);
+        emit(CartSuccess(response['message']));
+      },
+      emit: emit,
+      failureStateBuilder: (message) => CartFailure(message),
+    );
+  }
+
+  Future<void> removeOneFromCart (int productId) async
+  {
+    emit(CartLoading());
+
+    await executeWithCatch
+    (
+      action: () async 
+      {
+        UserModel user = await requireUser();
+        // ignore: missing_required_param
+        Map<String, dynamic> response = await Api().post(url: '$removeOneEndPoint/$productId', token: user.token);
         emit(CartSuccess(response['message']));
       },
       emit: emit,

@@ -63,5 +63,5 @@
     "status":"Status",
     "confirmation":"Confirmation",
     "cancel":"Cancel",
-    "orderNamber":"orderNamber"
+    "orderNumber" : "order number"
 }  
