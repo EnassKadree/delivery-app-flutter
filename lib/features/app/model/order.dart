@@ -34,8 +34,8 @@ class OrderModel {
     if (json["customer_id"] is int) {
       customerId = json["customer_id"];
     }
-    if (json["created_at"] != null && json["created_at"] is String) {
-      createdAt = DateTime.tryParse(json["created_at"]);
+    if (json["date"] != null && json["date"] is String) {
+      createdAt = DateTime.tryParse(json["date"]);
     }
     if (json["updated_at"] != null && json["updated_at"] is String) {
       updatedAt = DateTime.tryParse(json["updated_at"]);

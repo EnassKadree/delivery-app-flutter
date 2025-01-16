@@ -4,6 +4,7 @@ import 'package:delivery_app/core/Extensions/string_extensions.dart';
 import 'package:delivery_app/core/components/modal_progress_hud_nsn.dart';
 import 'package:delivery_app/core/constants/json_constants.dart';
 import 'package:delivery_app/core/functions/functions.dart';
+import 'package:delivery_app/features/orders/service/check_order/check_order_cubit.dart';
 import 'package:delivery_app/features/orders/service/post_order/order_post_cubit.dart';
 import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
 import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
@@ -16,26 +17,14 @@ void showOrderConfirmationDialog(BuildContext context, int price) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      //final profileCubit = BlocProvider.of<ProfileCubit>(context);
       final updateProfileCubit = BlocProvider.of<UpdateProfileCubit>(context);
-
+      final checkOrderCubit = BlocProvider.of<CheckOrderCubit>(context);
       return MultiBlocListener(
         listeners: [
           BlocListener<ProfileCubit, ProfileState>(
             listener: (context, state) {
               if (state is ProfileSuccess) {
                 addressController.text = state.customer.address ?? '';
-              }
-            },
-          ),
-          BlocListener<UpdateProfileCubit, UpdateProfileState>(
-            listener: (context, state) {
-              if (state is ProfileUpdateSuccess) {
-                Functions()
-                    .showSnackBar(context, "Address updated successfully!");
-              }
-              if (state is ProfileUpdateFailure) {
-                Functions().showAlertDialog(context, false, state.message);
               }
             },
           ),
@@ -49,8 +38,23 @@ void showOrderConfirmationDialog(BuildContext context, int price) {
               }
             },
           ),
+          BlocListener<CheckOrderCubit, CheckOrderState>(
+            listener: (context, state) {
+              if (state is CheckOrderFailure) {
+                Functions().showAlertDialog(context, false, state.message);
+              }
+              if (state is CheckOrderSuccess) {
+                final updatedAddress = addressController.text;
+
+                context.read<OrderPostCubit>().postOrder(
+                      address: updatedAddress,
+                    );
+                Navigator.of(context).pop();
+              }
+            },
+          ),
         ],
-        child: BlocBuilder<ProfileCubit, ProfileState>(
+        child: BlocBuilder<OrderPostCubit, OrderPostState>(
           builder: (context, state) {
             return CustomProgressIndicator(
                 inAsyncCall: state is OrderPostLoading,
@@ -58,6 +62,7 @@ void showOrderConfirmationDialog(BuildContext context, int price) {
                   addressController: addressController,
                   updateProfileCubit: updateProfileCubit,
                   price: price,
+                  checkOrderCubit: checkOrderCubit,
                 ));
           },
         ),
@@ -72,8 +77,9 @@ class OrderAlertDialog extends StatelessWidget {
     required this.addressController,
     required this.updateProfileCubit,
     required this.price,
+    required this.checkOrderCubit,
   });
-
+  final CheckOrderCubit checkOrderCubit;
   final TextEditingController addressController;
   final UpdateProfileCubit updateProfileCubit;
   final int price;
@@ -107,20 +113,7 @@ class OrderAlertDialog extends StatelessWidget {
         ),
         ElevatedButton(
           onPressed: () {
-            final updatedAddress = addressController.text;
-            updateProfileCubit.updateProfile(
-              firstName: updateProfileCubit.firstNameCon.text,
-              lastName: updateProfileCubit.lastNameCon.text,
-              phone: updateProfileCubit.phoneCon.text,
-              address: updatedAddress,
-              image: "",
-            );
-            print(updatedAddress);
-            BlocProvider.of<OrderPostCubit>(context).postOrder(
-              address: updatedAddress,
-            );
-BlocProvider.of<ProfileCubit>(context).getUserInfo();
-            Navigator.of(context).pop();
+            checkOrderCubit.getSuccess();
           },
           child: Text(JsonConstants.confirmation.t(context)),
         ),

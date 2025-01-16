@@ -62,5 +62,6 @@
     "confirmOrder":"confirm order",
     "status":"Status",
     "confirmation":"Confirmation",
-    "cancel":"Cancel"
+    "cancel":"Cancel",
+    "orderNamber":"orderNamber"
 }  

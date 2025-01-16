@@ -2,6 +2,7 @@ import 'package:delivery_app/core/functions/functions.dart';
 import 'package:delivery_app/features/app/model/user.dart';
 import 'package:delivery_app/features/auth/service/register/register_cubit.dart';
 import 'package:delivery_app/features/cart/service/cart/cart_cubit.dart';
+import 'package:delivery_app/features/orders/service/check_order/check_order_cubit.dart';
 import 'package:delivery_app/features/orders/service/post_order/order_post_cubit.dart';
 import 'package:delivery_app/features/profile/service/get_info/profile_cubit.dart';
 import 'package:delivery_app/features/profile/service/updaute/update_profile_cubit.dart';
@@ -56,12 +57,10 @@ void main() async {
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => CartCubit()),
         BlocProvider(create: (context) => FavoriteCubit()),
-        BlocProvider(create: (context) => ProfileCubit()),
+        BlocProvider(create: (context) => ProfileCubit()..getUserInfo()),
         BlocProvider(create: (context) => OrderPostCubit()),
-        BlocProvider(
-          create: (context) => ProfileCubit()..getUserInfo(),
-        ),
         BlocProvider(create: (context) => UpdateProfileCubit()),
+        BlocProvider(create: (context) => CheckOrderCubit())
       ],
       child: const MyApp(),
     ),

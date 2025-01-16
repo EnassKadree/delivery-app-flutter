@@ -62,6 +62,7 @@
     "confirmOrder":"تأكيد الطلب",
     "status":"حالة",
     "confirmation":"تأكيد",
-    "cancel":"إلغاء"
+    "cancel":"إلغاء",
+    "orderNamber":"رقم الطلب"
 
 }  
